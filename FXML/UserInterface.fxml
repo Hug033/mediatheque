@@ -206,27 +206,19 @@
             <Pane prefHeight="123.0" prefWidth="1024.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER">
                <children>
                   <TextField fx:id="InputRecherche" layoutX="200.0" layoutY="52.0" prefHeight="37.0" prefWidth="601.0" promptText="Recherchez vos CD, DVD, Livres, ..." />
-                  <Button fx:id="ButtonRecherche" layoutX="801.0" layoutY="52.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="42.0">
-                     <graphic>
-                        <ImageView fitHeight="28.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@search.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
+                  <Button fx:id="ButtonRecherche" layoutX="764.0" layoutY="51.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="42.0" text="🔎" textFill="#00adb5">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Button>
                   <ImageView fx:id="ImageProfil" fitHeight="96.0" fitWidth="101.0" layoutX="918.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Profil.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="ButtonEmprunt" layoutX="863.0" layoutY="51.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="45.0">
-                     <graphic>
-                        <ImageView fitHeight="32.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@receipt.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
+                  <Button fx:id="ButtonEmprunt" layoutX="838.0" layoutY="51.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0" text="📚" textFill="#00adb5">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
                   </Button>
                   <Label layoutX="23.0" layoutY="68.0" prefHeight="49.0" prefWidth="155.0" text="xMediatheque" textFill="#00adb5">
                      <font>
