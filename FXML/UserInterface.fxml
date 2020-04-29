@@ -26,15 +26,15 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <CheckBox layoutX="39.0" layoutY="52.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="DVD" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckDVD" layoutX="39.0" layoutY="52.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="DVD" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font></CheckBox>
-                  <CheckBox layoutX="39.0" layoutY="85.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="CD" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckCD" layoutX="39.0" layoutY="85.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="CD" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font></CheckBox>
-                  <CheckBox layoutX="39.0" layoutY="118.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="Livre" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckLivre" layoutX="39.0" layoutY="118.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="Livre" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font></CheckBox>
@@ -43,7 +43,7 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <CheckBox layoutX="39.0" layoutY="455.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="19.0">
+                  <CheckBox fx:id="TypeCheck5Stars" layoutX="39.0" layoutY="455.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="19.0">
                      <font>
                         <Font size="18.0" />
                      </font></CheckBox>
@@ -52,23 +52,23 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <ListView layoutX="40.0" layoutY="210.0" prefHeight="188.0" prefWidth="148.0" />
-                  <CheckBox layoutX="39.0" layoutY="483.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="19.0">
+                  <ListView fx:id="ListViewCategorie" layoutX="40.0" layoutY="210.0" prefHeight="188.0" prefWidth="148.0" />
+                  <CheckBox fx:id="TypeCheck4Stars" layoutX="39.0" layoutY="483.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="19.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox layoutX="39.0" layoutY="511.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="19.0">
+                  <CheckBox fx:id="TypeCheck3Stars" layoutX="39.0" layoutY="511.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="19.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox layoutX="39.0" layoutY="539.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="19.0">
+                  <CheckBox fx:id="TypeCheck2Stars" layoutX="39.0" layoutY="539.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="19.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox layoutX="39.0" layoutY="567.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="19.0">
+                  <CheckBox fx:id="TypeCheck1Stars" layoutX="39.0" layoutY="567.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="19.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -205,8 +205,8 @@
          <top>
             <Pane prefHeight="123.0" prefWidth="1024.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER">
                <children>
-                  <TextField layoutX="200.0" layoutY="52.0" prefHeight="37.0" prefWidth="601.0" promptText="Recherchez vos CD, DVD, Livres, ..." />
-                  <Button layoutX="801.0" layoutY="52.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="42.0">
+                  <TextField fx:id="InputRecherche" layoutX="200.0" layoutY="52.0" prefHeight="37.0" prefWidth="601.0" promptText="Recherchez vos CD, DVD, Livres, ..." />
+                  <Button fx:id="ButtonRecherche" layoutX="801.0" layoutY="52.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="42.0">
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -214,12 +214,12 @@
                            </image>
                         </ImageView>
                      </graphic></Button>
-                  <ImageView fitHeight="96.0" fitWidth="101.0" layoutX="918.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ImageProfil" fitHeight="96.0" fitWidth="101.0" layoutX="918.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Profil.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="863.0" layoutY="51.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="45.0">
+                  <Button fx:id="ButtonEmprunt" layoutX="863.0" layoutY="51.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="45.0">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -242,7 +242,7 @@
             </Pane>
          </top>
          <center>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eeeeee;" BorderPane.alignment="CENTER" />
+            <Pane fx:id="PaneResultat" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eeeeee;" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </children>
