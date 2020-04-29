@@ -224,7 +224,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label layoutX="23.0" layoutY="68.0" prefHeight="49.0" prefWidth="155.0" text="xMediatheque" textFill="#00adb5">
+                  <Label layoutX="23.0" layoutY="68.0" prefHeight="49.0" prefWidth="115.0" text="xMediatek" textFill="#00adb5">
                      <font>
                         <Font size="24.0" />
                      </font>
