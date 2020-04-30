@@ -91,7 +91,7 @@ create table token (
     token varchar not null,
     validate varchar not null,
 
-    foreign key(id_user) REFERENCES user(id)
+    foreign key(id_user) REFERENCES person(id)
 );
 
 GRANT ALL PRIVILEGES ON person TO user_media;
