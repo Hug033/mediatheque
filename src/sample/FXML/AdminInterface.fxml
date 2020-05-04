@@ -50,7 +50,7 @@
                <children>
                   <TextField fx:id="InputRecherche" layoutX="200.0" layoutY="52.0" onKeyPressed="#VerifTouche" prefHeight="37.0" prefWidth="601.0" promptText="Rechercher des utilisateurs ..." />
                   <Button fx:id="ButtonRecherche" layoutX="797.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#Recherche" prefHeight="36.0" prefWidth="42.0" text="🔎" />
-                  <ImageView fx:id="ImageProfil" fitHeight="96.0" fitWidth="76.0" layoutX="906.0" layoutY="14.0" onMouseClicked="#AfficheCompte" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ImageProfil" fitHeight="96.0" fitWidth="76.0" layoutX="906.0" layoutY="14.0" onMouseClicked="#AfficherCompte" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Profil.png" />
                      </image>

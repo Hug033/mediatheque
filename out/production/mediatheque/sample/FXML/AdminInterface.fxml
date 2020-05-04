@@ -21,23 +21,23 @@
          <left>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #393e46;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="ButtonFiltre" layoutX="13.0" layoutY="606.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="Filtrer" />
+                  <Button fx:id="ButtonFiltre" layoutX="13.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#Filtrer" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="Filtrer" />
                   <Label layoutX="13.0" layoutY="14.0" prefHeight="38.0" prefWidth="168.0" text="Type status :" textFill="WHITE" underline="true">
                      <font>
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <CheckBox fx:id="TypeCheckClient" layoutX="26.0" layoutY="71.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="Client" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckClient" layoutX="26.0" layoutY="71.0" mnemonicParsing="false" onMouseClicked="#SelectClient" prefHeight="17.0" prefWidth="149.0" text="Client" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox fx:id="TypeCheckOperateur" layoutX="26.0" layoutY="105.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="Opérateur" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckOperateur" layoutX="26.0" layoutY="105.0" mnemonicParsing="false" onMouseClicked="#SelectOperateur" prefHeight="17.0" prefWidth="149.0" text="Opérateur" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox fx:id="TypeCheckAdmin" layoutX="26.0" layoutY="141.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="172.0" text="Administrateur" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckAdmin" layoutX="26.0" layoutY="141.0" mnemonicParsing="false" onMouseClicked="#SelectAdministrateur" prefHeight="27.0" prefWidth="172.0" text="Administrateur" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -48,9 +48,9 @@
          <top>
             <Pane prefHeight="123.0" prefWidth="1024.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="InputRecherche" layoutX="200.0" layoutY="52.0" prefHeight="37.0" prefWidth="601.0" promptText="Rechercher des utilisateurs ..." />
-                  <Button fx:id="ButtonRecherche" layoutX="797.0" layoutY="52.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="42.0" text="🔎" />
-                  <ImageView fx:id="ImageProfil" fitHeight="96.0" fitWidth="76.0" layoutX="906.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <TextField fx:id="InputRecherche" layoutX="200.0" layoutY="52.0" onKeyPressed="#VerifTouche" prefHeight="37.0" prefWidth="601.0" promptText="Rechercher des utilisateurs ..." />
+                  <Button fx:id="ButtonRecherche" layoutX="797.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#Recherche" prefHeight="36.0" prefWidth="42.0" text="🔎" />
+                  <ImageView fx:id="ImageProfil" fitHeight="96.0" fitWidth="76.0" layoutX="906.0" layoutY="14.0" onMouseClicked="#AfficherCompte" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Profil.png" />
                      </image>

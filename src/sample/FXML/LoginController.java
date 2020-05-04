@@ -105,6 +105,23 @@ public class LoginController {
             stage.setTitle("xMediatek - " + title);
             stage.show();
 
+            stage.setOnCloseRequest(windowEvent -> {
+                FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("Login.fxml"));
+                Parent root2;
+                try {
+                    root2 = (Parent) fxmlLoader1.load();
+
+                    Stage stage1 = new Stage();
+                    stage1.setScene(new Scene(root2, 1024, 768));
+                    stage1.setResizable(false);
+                    stage1.getIcons().add(new Image(LoginController.class.getResourceAsStream("logo.png")));
+                    stage1.setTitle("xMediatek");
+                    stage1.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+
             Stage stage1 = (Stage) ButtonConn.getScene().getWindow();
             stage1.close();
 
