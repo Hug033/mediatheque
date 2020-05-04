@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import sample.ClientConnexion;
@@ -67,7 +68,7 @@ public class LoginController {
         }
     }
 
-    private void ChangePane(String pane, String token) { // TODO Fermer le panneau actuel et ajouter image
+    private void ChangePane(String pane, String token) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(pane));
         Parent root1;
         try {
@@ -75,23 +76,23 @@ public class LoginController {
             String title = "";
 
             if (pane.equals("UserInterface.fxml")) {
-                UserController c = fxmlLoader.getController();
-                c.init(token);
+                UserController userController = fxmlLoader.getController();
+                userController.init(token);
                 title = "Utilisateur";
             } else if (pane.equals("OperateurInterface.fxml")) {
-                OperateurController c = fxmlLoader.getController();
-                c.init(token);
+                OperateurController operateurController = fxmlLoader.getController();
+                operateurController.init(token);
                 title = "Opérateur";
             } else {
-                AdminController c = fxmlLoader.getController();
-                c.init(token);
+                AdminController adminController = fxmlLoader.getController();
+                adminController.init(token);
                 title = "Administrateur";
             }
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root1, 1024, 768));
             stage.setResizable(false);
-            //stage.getIcons().add(new Image(Main.class.getResourceAsStream("logo.png")));
+            stage.getIcons().add(new Image(LoginController.class.getResourceAsStream("logo.png")));
             stage.setTitle("xMediatek - " + title);
             stage.show();
 

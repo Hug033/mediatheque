@@ -44,7 +44,7 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <CheckBox fx:id="TypeCheck5Stars" layoutX="39.0" layoutY="455.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="19.0">
+                  <CheckBox fx:id="TypeCheck5Stars" layoutX="39.0" layoutY="455.0" mnemonicParsing="false" onMouseClicked="#Select5Stars" prefHeight="17.0" prefWidth="19.0">
                      <font>
                         <Font size="18.0" />
                      </font></CheckBox>
@@ -54,22 +54,22 @@
                      </font>
                   </Label>
                   <ListView fx:id="ListViewCategorie" layoutX="40.0" layoutY="210.0" prefHeight="188.0" prefWidth="148.0" />
-                  <CheckBox fx:id="TypeCheck4Stars" layoutX="39.0" layoutY="483.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="19.0">
+                  <CheckBox fx:id="TypeCheck4Stars" layoutX="39.0" layoutY="483.0" mnemonicParsing="false" onMouseClicked="#Select4Stars" prefHeight="17.0" prefWidth="19.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox fx:id="TypeCheck3Stars" layoutX="39.0" layoutY="511.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="19.0">
+                  <CheckBox fx:id="TypeCheck3Stars" layoutX="39.0" layoutY="511.0" mnemonicParsing="false" onMouseClicked="#Select3Stars" prefHeight="17.0" prefWidth="19.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox fx:id="TypeCheck2Stars" layoutX="39.0" layoutY="539.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="19.0">
+                  <CheckBox fx:id="TypeCheck2Stars" layoutX="39.0" layoutY="539.0" mnemonicParsing="false" onMouseClicked="#Select2Stars" prefHeight="17.0" prefWidth="19.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox fx:id="TypeCheck1Stars" layoutX="39.0" layoutY="567.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="19.0">
+                  <CheckBox fx:id="TypeCheck1Stars" layoutX="39.0" layoutY="567.0" mnemonicParsing="false" onMouseClicked="#Select1Stars" prefHeight="17.0" prefWidth="19.0">
                      <font>
                         <Font size="18.0" />
                      </font>

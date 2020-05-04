@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 public class OperateurController {
+
     private String token;
 
     @FXML
@@ -24,6 +25,7 @@ public class OperateurController {
     private Button ButtonFiltre;
     private Pane PaneResultat;
 
+    //Init du controller
     public void init(String token) {
         this.token = token;
     }
