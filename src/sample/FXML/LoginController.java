@@ -8,11 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import sample.ClientConnexion;
-import sample.Main;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -48,15 +46,15 @@ public class LoginController {
             ClientConnexion connexion = new ClientConnexion("127.0.0.1", 2345, commandes);
             List<String> response = connexion.run();
 
-            if (response.get(0) == "OK") {
-                if (response.get(2) == "0") {
+            if (response.get(0).equals("OK")) {
+                if (response.get(2).equals("0")) {
                     LoginError.setVisible(true);
                     LoginError.setText("Vous êtes banni veuillez contacter un administrateur");
-                } else if (response.get(2) == "1") {
+                } else if (response.get(2).equals("1")) {
                     ChangePane("UserInterface.fxml", response.get(1));
-                } else if (response.get(2) == "2") {
+                } else if (response.get(2).equals("2")) {
                     ChangePane("OperateurInterface.fxml", response.get(1));
-                } else if (response.get(2) == "3") {
+                } else if (response.get(2).equals("3")) {
                     ChangePane("AdminInterface.fxml", response.get(1));
                 }
             } else {
@@ -69,29 +67,37 @@ public class LoginController {
         }
     }
 
-    private void ChangePane(String pane, String token) {
+    private void ChangePane(String pane, String token) { // TODO Fermer le panneau actuel et ajouter image
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(pane));
-        Parent root;
+        Parent root1;
         try {
-            root = (Parent) fxmlLoader.load();
+            root1 = (Parent) fxmlLoader.load();
+            String title = "";
 
-            if (pane == "UserInterface.fxml") {
+            if (pane.equals("UserInterface.fxml")) {
                 UserController c = fxmlLoader.getController();
                 c.init(token);
-            } else if (pane == "OperateurInterface.fxml") {
+                title = "Utilisateur";
+            } else if (pane.equals("OperateurInterface.fxml")) {
                 OperateurController c = fxmlLoader.getController();
                 c.init(token);
+                title = "Opérateur";
             } else {
                 AdminController c = fxmlLoader.getController();
                 c.init(token);
+                title = "Administrateur";
             }
+
             Stage stage = new Stage();
-            stage.setScene(new Scene(root, 1024, 768));
+            stage.setScene(new Scene(root1, 1024, 768));
             stage.setResizable(false);
-            stage.getIcons().add(new Image(Main.class.getResourceAsStream("logo.png")));
-            stage.setTitle("xMediatek");
-            stage.setScene(new Scene(root));
+            //stage.getIcons().add(new Image(Main.class.getResourceAsStream("logo.png")));
+            stage.setTitle("xMediatek - " + title);
             stage.show();
+
+            Stage stage1 = (Stage) ButtonConn.getScene().getWindow();
+            stage1.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

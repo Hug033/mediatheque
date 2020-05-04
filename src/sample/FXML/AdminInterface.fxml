@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
@@ -10,7 +15,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="768.0" prefWidth="1024.0">
          <left>
@@ -22,17 +27,17 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <CheckBox fx:id="TypeCheckDVD12" layoutX="26.0" layoutY="71.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="Client" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckClient" layoutX="26.0" layoutY="71.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="Client" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox fx:id="TypeCheckDVD121" layoutX="26.0" layoutY="105.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="Opérateur" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckOperateur" layoutX="26.0" layoutY="105.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="Opérateur" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox fx:id="TypeCheckDVD1211" layoutX="26.0" layoutY="141.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="172.0" text="Administrateur" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckAdmin" layoutX="26.0" layoutY="141.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="172.0" text="Administrateur" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -44,14 +49,7 @@
             <Pane prefHeight="123.0" prefWidth="1024.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER">
                <children>
                   <TextField fx:id="InputRecherche" layoutX="200.0" layoutY="52.0" prefHeight="37.0" prefWidth="601.0" promptText="Rechercher des utilisateurs ..." />
-                  <Button fx:id="ButtonRecherche" layoutX="797.0" layoutY="52.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="42.0">
-                     <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@search.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
+                  <Button fx:id="ButtonRecherche" layoutX="797.0" layoutY="52.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="42.0" text="🔎" />
                   <ImageView fx:id="ImageProfil" fitHeight="96.0" fitWidth="76.0" layoutX="906.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Profil.png" />

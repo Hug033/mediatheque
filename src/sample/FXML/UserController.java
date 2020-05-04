@@ -30,6 +30,12 @@ public class UserController {
     private Button ButtonFiltre;
     private Pane PaneResultat;
 
+    //Init du controller
+    public void init(String token) {
+        this.token = token;
+    }
+
+    //Verif si on tape entrer pour lancer la recherche plus vite
     @FXML
     private void VerifTouche(KeyEvent event) {
         if (event.getCode().toString().equals("ENTER")) {
@@ -37,27 +43,68 @@ public class UserController {
         }
     }
 
+    // Méthode de Recherche sur ce qu'on à rentrer
     @FXML
     private void Recherche() {
-        //Recherche
+
     }
 
+    // Méthode pour afficher le pane d'emprunt
     @FXML
     private void AfficherEmprunt() {
 
     }
 
+    // Méthode pour afficher le pane de compte
     @FXML
     private void AfficherCompte() {
 
     }
 
+    // Méthode pour filtrer la recherche
     @FXML
     private void Filtrer() {
 
     }
 
-    public void init(String token) {
-        this.token = token;
+    //Méthode pour remplir la list view des catégories
+    @FXML
+    private void SelectDVD() {
+
+    }
+
+    @FXML
+    private void SelectCD() {
+
+    }
+
+    @FXML
+    private void SelectLivre() {
+
+    }
+
+    @FXML
+    private void Select5Stars() {
+
+    }
+
+    @FXML
+    private void Select4Stars() {
+
+    }
+
+    @FXML
+    private void Select3Stars() {
+
+    }
+
+    @FXML
+    private void Select2Stars() {
+
+    }
+
+    @FXML
+    private void Select1Stars() {
+
     }
 }
