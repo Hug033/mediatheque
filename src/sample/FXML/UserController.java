@@ -67,42 +67,49 @@ public class UserController {
 
     }
 
-    //Méthode pour remplir la list view des catégories
+    //Méthode Quand on clique sur le selectDVD
     @FXML
     private void SelectDVD() {
 
     }
 
+    //Méthode Quand on clique sur le selectCD
     @FXML
     private void SelectCD() {
 
     }
 
+    //Méthode Quand on clique sur le selectLivre
     @FXML
     private void SelectLivre() {
 
     }
 
+    // Méthode quand on clique sur le Select5
     @FXML
     private void Select5Stars() {
 
     }
 
+    // Méthode quand on clique sur le Select4
     @FXML
     private void Select4Stars() {
 
     }
 
+    // Méthode quand on clique sur le Select3
     @FXML
     private void Select3Stars() {
 
     }
 
+    // Méthode quand on clique sur le Select2
     @FXML
     private void Select2Stars() {
 
     }
 
+    // Méthode quand on clique sur le Select1
     @FXML
     private void Select1Stars() {
 

@@ -26,40 +26,40 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <CheckBox fx:id="TypeCheckDVD" layoutX="39.0" layoutY="52.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="DVD" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckDVD" layoutX="39.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#SelectDVD" prefHeight="17.0" prefWidth="149.0" text="DVD" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font></CheckBox>
-                  <CheckBox fx:id="TypeCheckCD" layoutX="39.0" layoutY="85.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="CD" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckCD" layoutX="39.0" layoutY="85.0" mnemonicParsing="false" onMouseClicked="#SelectCD" prefHeight="17.0" prefWidth="149.0" text="CD" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font></CheckBox>
-                  <CheckBox fx:id="TypeCheckLivre" layoutX="39.0" layoutY="118.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="Livre" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckLivre" layoutX="39.0" layoutY="118.0" mnemonicParsing="false" onMouseClicked="#SelectLivre" prefHeight="17.0" prefWidth="149.0" text="Livre" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font></CheckBox>
-                  <Button fx:id="ButtonFiltre" layoutX="13.0" layoutY="606.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="Filtrer" />
+                  <Button fx:id="ButtonFiltre" layoutX="13.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#Filtrer" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="Filtrer" />
                   <Label layoutX="5.0" layoutY="176.0" prefHeight="38.0" prefWidth="168.0" text="Status :" textFill="WHITE" underline="true">
                      <font>
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <CheckBox fx:id="TypeCheckValider" layoutX="39.0" layoutY="226.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="À valider" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckValider" layoutX="39.0" layoutY="226.0" mnemonicParsing="false" onMouseClicked="#SelectValider" prefHeight="17.0" prefWidth="149.0" text="À valider" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox fx:id="TypeCheckCours" layoutX="39.0" layoutY="260.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="En cours" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckCours" layoutX="39.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#SelectCours" prefHeight="17.0" prefWidth="149.0" text="En cours" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox fx:id="TypeCheckRetard" layoutX="39.0" layoutY="293.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="En retard" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckRetard" layoutX="39.0" layoutY="293.0" mnemonicParsing="false" onMouseClicked="#SelectRetard" prefHeight="17.0" prefWidth="149.0" text="En retard" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox fx:id="TypeCheckStock" layoutX="39.0" layoutY="327.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="En stock" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckStock" layoutX="39.0" layoutY="327.0" mnemonicParsing="false" onMouseClicked="#SelectStock" prefHeight="17.0" prefWidth="149.0" text="En stock" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -70,9 +70,9 @@
          <top>
             <Pane prefHeight="123.0" prefWidth="1024.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="InputRecherche" layoutX="200.0" layoutY="52.0" prefHeight="37.0" prefWidth="601.0" promptText="Recherchez vos CD, DVD, Livres, ..." />
-                  <Button fx:id="ButtonRecherche" layoutX="797.0" layoutY="52.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="42.0" text="🔎" />
-                  <ImageView fx:id="ImageProfil" fitHeight="96.0" fitWidth="76.0" layoutX="906.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <TextField fx:id="InputRecherche" layoutX="200.0" layoutY="52.0" onKeyPressed="#VerifTouche" prefHeight="37.0" prefWidth="601.0" promptText="Recherchez vos CD, DVD, Livres, ..." />
+                  <Button fx:id="ButtonRecherche" layoutX="797.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#Recherche" prefHeight="36.0" prefWidth="42.0" text="🔎" />
+                  <ImageView fx:id="ImageProfil" fitHeight="96.0" fitWidth="76.0" layoutX="906.0" layoutY="14.0" onMouseClicked="#AfficheProfilAfficheCompte" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Profil.png" />
                      </image>

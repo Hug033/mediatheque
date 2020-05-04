@@ -27,15 +27,15 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <CheckBox fx:id="TypeCheckDVD" layoutX="39.0" layoutY="52.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="DVD" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckDVD" layoutX="39.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#SelectDVD" prefHeight="17.0" prefWidth="149.0" text="DVD" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font></CheckBox>
-                  <CheckBox fx:id="TypeCheckCD" layoutX="39.0" layoutY="85.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="CD" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckCD" layoutX="39.0" layoutY="85.0" mnemonicParsing="false" onMouseClicked="#SelectCD" prefHeight="17.0" prefWidth="149.0" text="CD" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font></CheckBox>
-                  <CheckBox fx:id="TypeCheckLivre" layoutX="39.0" layoutY="118.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="Livre" textFill="WHITE">
+                  <CheckBox fx:id="TypeCheckLivre" layoutX="39.0" layoutY="118.0" mnemonicParsing="false" onMouseClicked="#SelectLivre" prefHeight="17.0" prefWidth="149.0" text="Livre" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font></CheckBox>
@@ -126,7 +126,7 @@
                         <Image url="@logo.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="ButtonEmprunt" layoutX="860.0" layoutY="57.0" mnemonicParsing="false" onMouseClicked="#AfficherEmprunt" text="🛒" />
+                  <Button fx:id="ButtonEmprunt" layoutX="860.0" layoutY="57.0" mnemonicParsing="false" onMouseClicked="#AfficherEmprunt" text="🔎🛒" />
                </children>
             </Pane>
          </top>
