@@ -6,6 +6,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 
 public class UserController {
@@ -28,8 +29,10 @@ public class UserController {
     private Pane PaneResultat;
 
     @FXML
-    private void VerifTouche() {
-        //VerifTouche est envoie vers recherche()
+    private void VerifTouche(KeyEvent event) {
+        if (event.getCode().toString().equals("ENTER")) {
+            Recherche();
+        }
     }
 
     @FXML
