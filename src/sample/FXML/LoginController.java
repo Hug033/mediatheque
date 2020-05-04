@@ -20,6 +20,8 @@ import java.util.regex.Pattern;
 
 public class LoginController {
 
+    private boolean isRunning = false;
+
     // Init des composant FXML
     @FXML
     public TextField TextEmail;
@@ -38,33 +40,40 @@ public class LoginController {
     // Méthode sur le bouton connexion pour lancer la connexion.
     @FXML
     private void Connexion() {
-        if (Pattern.matches("^(.){1,}@(.){1,}\\.(.){1,}$", TextEmail.getText())) {
-            List<String> commandes = new ArrayList<>();
-            commandes.add("auth");
-            commandes.add(TextEmail.getText());
-            commandes.add(TextPass.getText());
+        if(!isRunning)
+        {
+            isRunning = true;
+            if (Pattern.matches("^(.){1,}@(.){1,}\\.(.){1,}$", TextEmail.getText())) {
+                List<String> commandes = new ArrayList<>();
+                commandes.add("auth");
+                commandes.add(TextEmail.getText());
+                commandes.add(TextPass.getText());
 
-            ClientConnexion connexion = new ClientConnexion("127.0.0.1", 2345, commandes);
-            List<String> response = connexion.run();
+                ClientConnexion connexion = new ClientConnexion("127.0.0.1", 2345, commandes);
+                List<String> response = connexion.run();
 
-            if (response.get(0).equals("OK")) {
-                if (response.get(2).equals("0")) {
+                if (response.get(0).equals("OK")) {
+                    if (response.get(2).equals("0")) {
+                        LoginError.setVisible(true);
+                        LoginError.setText("Vous êtes banni veuillez contacter un administrateur");
+                        isRunning = false;
+                    } else if (response.get(2).equals("1")) {
+                        ChangePane("UserInterface.fxml", response.get(1));
+                    } else if (response.get(2).equals("2")) {
+                        ChangePane("OperateurInterface.fxml", response.get(1));
+                    } else if (response.get(2).equals("3")) {
+                        ChangePane("AdminInterface.fxml", response.get(1));
+                    }
+                } else {
                     LoginError.setVisible(true);
-                    LoginError.setText("Vous êtes banni veuillez contacter un administrateur");
-                } else if (response.get(2).equals("1")) {
-                    ChangePane("UserInterface.fxml", response.get(1));
-                } else if (response.get(2).equals("2")) {
-                    ChangePane("OperateurInterface.fxml", response.get(1));
-                } else if (response.get(2).equals("3")) {
-                    ChangePane("AdminInterface.fxml", response.get(1));
+                    LoginError.setText("Votre mot de passe ou/et identifiant sont incorrects");
+                    isRunning = false;
                 }
             } else {
                 LoginError.setVisible(true);
-                LoginError.setText("Votre mot de passe ou/et identifiant sont incorrects");
+                LoginError.setText("La saisie de l'email est incorrect");
+                isRunning = false;
             }
-        } else {
-            LoginError.setVisible(true);
-            LoginError.setText("La saisie de l'email est incorrect");
         }
     }
 
