@@ -45,12 +45,7 @@ public class ClientConnexion{
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 
                 // Liste des messages a envoyer
-                List<String> messages = new ArrayList<>();
-                messages.add("auth");
-                messages.add("login");
-                messages.add("test");
-                messages.add("fsdf54s9");
-                objectOutputStream.writeObject(messages);
+                objectOutputStream.writeObject(this.ListCommandes);
                 objectOutputStream.flush();
 
                 //On attend la réponse
