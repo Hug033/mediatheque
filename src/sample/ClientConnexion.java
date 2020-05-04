@@ -1,27 +1,27 @@
 package sample;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ClientConnexion implements Runnable{
+public class ClientConnexion{
 
     private Socket connexion = null;
     private PrintWriter writer = null;
     private BufferedInputStream reader = null;
 
     //Notre liste de commandes. Le serveur nous répondra différemment selon la commande utilisée.
-    private String[] listCommands = {"FULL", "DATE", "HOUR", "NONE"};
+    private List<String> ListCommandes;
     private static int count = 0;
     private String name = "Client-";
 
-    public ClientConnexion(String host, int port){
+    public ClientConnexion(String host, int port, List<String> commandes){
         name += ++count;
         try {
             connexion = new Socket(host, port);
+            this.ListCommandes = commandes;
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -30,7 +30,7 @@ public class ClientConnexion implements Runnable{
     }
 
 
-    public void run(){
+    public List<String> run(){
 
         //nous n'allons faire que 10 demandes par thread...
         for(int i =0; i < 10; i++){
@@ -40,24 +40,31 @@ public class ClientConnexion implements Runnable{
                 e.printStackTrace();
             }
             try {
-
-
-                writer = new PrintWriter(connexion.getOutputStream(), true);
-                reader = new BufferedInputStream(connexion.getInputStream());
+                OutputStream outputStream = connexion.getOutputStream();
                 //On envoie la commande au serveur
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 
-                String commande = getCommand();
-                writer.write(commande);
-                //TOUJOURS UTILISER flush() POUR ENVOYER RÉELLEMENT DES INFOS AU SERVEUR
-                writer.flush();
-
-                System.out.println("Commande " + commande + " envoyée au serveur");
+                // Liste des messages a envoyer
+                List<String> messages = new ArrayList<>();
+                messages.add("auth");
+                messages.add("login");
+                messages.add("test");
+                messages.add("fsdf54s9");
+                objectOutputStream.writeObject(messages);
+                objectOutputStream.flush();
 
                 //On attend la réponse
-                String response = read();
+                InputStream inputStream = connexion.getInputStream();
+                ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+                List<String> response = (List<String>) objectInputStream.readObject();
                 System.out.println("\t * " + name + " : Réponse reçue " + response);
+                return response;
 
             } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+            catch (ClassNotFoundException e1) {
                 e1.printStackTrace();
             }
 
@@ -67,16 +74,9 @@ public class ClientConnexion implements Runnable{
                 e.printStackTrace();
             }
         }
-
-        writer.write("CLOSE");
-        writer.flush();
-        writer.close();
-    }
-
-    //Méthode qui permet d'envoyer des commandeS de façon aléatoire
-    private String getCommand(){
-        Random rand = new Random();
-        return listCommands[rand.nextInt(listCommands.length)];
+        List<String> fail = new ArrayList<>();
+        fail.add("auth_fail");
+        return fail;
     }
 
     //Méthode pour lire les réponses du serveur

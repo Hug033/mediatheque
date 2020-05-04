@@ -10,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("FXML/UserInterface.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXML/Login.fxml"));
         primaryStage.setTitle("xMediatek");
         primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("FXML/logo.png")));
         primaryStage.setScene(new Scene(root, 1024, 768));
