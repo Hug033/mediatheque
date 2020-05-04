@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
@@ -11,7 +16,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FXML.UserController">
    <children>
       <BorderPane prefHeight="768.0" prefWidth="1024.0">
          <left>
@@ -69,162 +74,53 @@
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <Button fx:id="ButtonFiltre" layoutX="13.0" layoutY="606.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="Filtrer" />
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="67.0" layoutY="456.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="92.0" layoutY="456.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="117.0" layoutY="456.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="142.0" layoutY="456.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="167.0" layoutY="456.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="67.0" layoutY="482.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="67.0" layoutY="511.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="67.0" layoutY="539.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="67.0" layoutY="565.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="91.0" layoutY="482.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="92.0" layoutY="511.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="92.0" layoutY="539.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="116.0" layoutY="482.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="117.0" layoutY="511.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="141.0" layoutY="482.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Star.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="166.0" layoutY="482.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@noStar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="140.0" layoutY="511.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@noStar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="165.0" layoutY="511.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@noStar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="116.0" layoutY="539.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@noStar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="140.0" layoutY="539.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@noStar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="165.0" layoutY="539.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@noStar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="92.0" layoutY="565.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@noStar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="116.0" layoutY="565.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@noStar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="140.0" layoutY="565.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@noStar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="165.0" layoutY="565.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@noStar.png" />
-                     </image>
-                  </ImageView>
+                  <Button fx:id="ButtonFiltre" layoutX="13.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#Filtrer" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="Filtrer" />
+                  <Label layoutX="66.0" layoutY="438.0" prefHeight="63.0" prefWidth="162.0" text="★★★★★" textAlignment="CENTER" textFill="#ffc83d">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="66.0" layoutY="465.0" prefHeight="63.0" prefWidth="141.0" text="★★★★☆" textAlignment="CENTER" textFill="#ffc83d">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="66.0" layoutY="492.0" prefHeight="63.0" prefWidth="162.0" text="★★★☆☆" textAlignment="CENTER" textFill="#ffc83d">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="66.0" layoutY="521.0" prefHeight="63.0" prefWidth="162.0" text="★★☆☆☆" textAlignment="CENTER" textFill="#ffc83d">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="66.0" layoutY="549.0" prefHeight="63.0" prefWidth="162.0" text="★☆☆☆☆" textAlignment="CENTER" textFill="#ffc83d">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </left>
          <top>
             <Pane prefHeight="123.0" prefWidth="1024.0" style="-fx-background-color: #222831;" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="InputRecherche" layoutX="200.0" layoutY="52.0" prefHeight="37.0" prefWidth="601.0" promptText="Recherchez vos CD, DVD, Livres, ..." />
-                  <Button fx:id="ButtonRecherche" layoutX="797.0" layoutY="52.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="42.0">
-                     <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@search.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
-                  <ImageView fx:id="ImageProfil" fitHeight="96.0" fitWidth="101.0" layoutX="918.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <TextField fx:id="InputRecherche" layoutX="200.0" layoutY="52.0" onKeyPressed="#VerifTouche" prefHeight="37.0" prefWidth="601.0" promptText="Recherchez vos CD, DVD, Livres, ..." />
+                  <Button fx:id="ButtonRecherche" layoutX="797.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#Recherche" prefHeight="36.0" prefWidth="42.0" text="🔎" textFill="#00adb5">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Button>
+                  <ImageView fx:id="ImageProfil" fitHeight="96.0" fitWidth="101.0" layoutX="918.0" layoutY="14.0" onMouseClicked="#AfficherCompte" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Profil.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="ButtonEmprunt" layoutX="854.0" layoutY="51.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="45.0">
-                     <graphic>
-                        <ImageView fitHeight="32.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@receipt.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Label layoutX="23.0" layoutY="68.0" prefHeight="49.0" prefWidth="115.0" text="xMediatek" textFill="#00adb5">
+                  <Button fx:id="ButtonEmprunt" layoutX="854.0" layoutY="51.0" mnemonicParsing="false" onMouseClicked="#AfficherEmprunt" prefHeight="40.0" prefWidth="45.0" text="🔎🛒" textFill="#00adb5">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Button>
+                  <Label layoutX="41.0" layoutY="67.0" prefHeight="49.0" prefWidth="115.0" text="xMediatek" textFill="#00adb5">
                      <font>
                         <Font size="24.0" />
                      </font>
