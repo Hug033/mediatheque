@@ -78,14 +78,4 @@ public class ClientConnexion{
         fail.add("auth_fail");
         return fail;
     }
-
-    //Méthode pour lire les réponses du serveur
-    private String read() throws IOException{
-        String response = "";
-        int stream;
-        byte[] b = new byte[4096];
-        stream = reader.read(b);
-        response = new String(b, 0, stream);
-        return response;
-    }
 }

@@ -1,14 +1,20 @@
 package sample.FXML;
 
-import sample.ClientConnexion;
-
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
+import sample.ClientConnexion;
+import sample.Main;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -47,11 +53,11 @@ public class LoginController {
                     LoginError.setVisible(true);
                     LoginError.setText("Vous êtes banni veuillez contacter un administrateur");
                 } else if (response.get(2) == "1") {
-                    // Afficher Interface user
+                    ChangePane("UserInterface.fxml", response.get(1));
                 } else if (response.get(2) == "2") {
-                    // Afficher Interface operateur
+                    ChangePane("OperateurInterface.fxml", response.get(1));
                 } else if (response.get(2) == "3") {
-                    // Afficher interface Administrateur
+                    ChangePane("AdminInterface.fxml", response.get(1));
                 }
             } else {
                 LoginError.setVisible(true);
@@ -60,6 +66,34 @@ public class LoginController {
         } else {
             LoginError.setVisible(true);
             LoginError.setText("La saisie de l'email est incorrect");
+        }
+    }
+
+    private void ChangePane(String pane, String token) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(pane));
+        Parent root;
+        try {
+            root = (Parent) fxmlLoader.load();
+
+            if (pane == "UserInterface.fxml") {
+                UserController c = fxmlLoader.getController();
+                c.init(token);
+            } else if (pane == "OperateurInterface.fxml") {
+                OperateurController c = fxmlLoader.getController();
+                c.init(token);
+            } else {
+                AdminController c = fxmlLoader.getController();
+                c.init(token);
+            }
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 1024, 768));
+            stage.setResizable(false);
+            stage.getIcons().add(new Image(Main.class.getResourceAsStream("logo.png")));
+            stage.setTitle("xMediatek");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

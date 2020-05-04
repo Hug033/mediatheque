@@ -11,6 +11,8 @@ import javafx.scene.layout.Pane;
 
 public class UserController {
 
+    private String token;
+
     @FXML
     private TextField InputRecherche;
     private Button ButtonEmprunt;
@@ -53,5 +55,9 @@ public class UserController {
     @FXML
     private void Filtrer() {
 
+    }
+
+    public void init(String token) {
+        this.token = token;
     }
 }
