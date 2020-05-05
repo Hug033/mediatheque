@@ -1,6 +1,8 @@
 package sample.FXML;
 
-public class Media {
+import java.io.Serializable;
+
+public class Media implements Serializable {
 
     private byte[] photo;
     private String ref;

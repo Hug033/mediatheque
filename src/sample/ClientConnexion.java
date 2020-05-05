@@ -5,6 +5,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
+import sample.FXML.Media;
 
 public class ClientConnexion{
 
@@ -52,21 +53,15 @@ public class ClientConnexion{
                 InputStream inputStream = connexion.getInputStream();
                 ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
                 List<Serializable> response = (List<Serializable>) objectInputStream.readObject();
+                objectInputStream.close();
                 System.out.println("\t * " + name + " : Réponse reçue " + response);
+                connexion.close();
                 return response;
 
             } catch (IOException e1) {
                 e1.printStackTrace();
-            }
-
-            catch (ClassNotFoundException e1) {
+            } catch (ClassNotFoundException e1) {
                 e1.printStackTrace();
-            }
-
-            try {
-                Thread.currentThread().sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
         }
         List<Serializable> fail = new ArrayList<>();
