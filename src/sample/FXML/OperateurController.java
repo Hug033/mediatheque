@@ -14,16 +14,38 @@ public class OperateurController {
 
     @FXML
     private TextField InputRecherche;
+
+    @FXML
     private Button ButtonRecherche;
+
+    @FXML
     private ImageView ImageProfil;
+
+    @FXML
     private CheckBox TypeCheckDVD;
+
+    @FXML
     private CheckBox TypeCheckCD;
+
+    @FXML
     private CheckBox TypeCheckLivre;
+
+    @FXML
     private CheckBox TypeCheckValider;
+
+    @FXML
     private CheckBox TypeCheckCours;
+
+    @FXML
     private CheckBox TypeCheckRetard;
+
+    @FXML
     private CheckBox TypeCheckStock;
+
+    @FXML
     private Button ButtonFiltre;
+
+    @FXML
     private Pane PaneResultat;
 
     //Init du controller

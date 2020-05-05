@@ -25,8 +25,14 @@ public class LoginController {
     // Init des composant FXML
     @FXML
     public TextField TextEmail;
+
+    @FXML
     public PasswordField TextPass;
+
+    @FXML
     public Label LoginError;
+
+    @FXML
     public Button ButtonConn;
 
     // Méthode sur le PasswordField pour lancer la connexion
@@ -99,7 +105,8 @@ public class LoginController {
             }
 
             Stage stage = new Stage();
-            stage.setScene(new Scene(root1, 1024, 768));
+            Scene scene1 = new Scene(root1, 1024, 768);
+            stage.setScene(scene1);
             stage.setResizable(false);
             stage.getIcons().add(new Image(LoginController.class.getResourceAsStream("logo.png")));
             stage.setTitle("xMediatek - " + title);

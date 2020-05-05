@@ -3,7 +3,6 @@ package sample.FXML;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -15,12 +14,26 @@ public class AdminController {
 
     @FXML
     private TextField InputRecherche;
+
+    @FXML
     private Button ButtonRecherche;
+
+    @FXML
     private ImageView ImageProfil;
+
+    @FXML
     private CheckBox TypeCheckClient;
+
+    @FXML
     private CheckBox TypeCheckOperateur;
+
+    @FXML
     private CheckBox TypeCheckAdmin;
+
+    @FXML
     private Button ButtonFiltre;
+
+    @FXML
     private Pane PaneResultat;
 
     //Init du controller

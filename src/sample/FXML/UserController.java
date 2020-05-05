@@ -1,33 +1,73 @@
 package sample.FXML;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
 
-public class UserController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class UserController implements Initializable {
 
     private String token;
 
     @FXML
     private TextField InputRecherche;
+
+    @FXML
     private Button ButtonEmprunt;
+
+    @FXML
     private Button ButtonRecherche;
+
+    @FXML
     private ImageView ImageProfil;
+
+    @FXML
     private CheckBox TypeCheckDVD;
+
+    @FXML
     private CheckBox TypeCheckCD;
+
+    @FXML
     private CheckBox TypeCheckLivre;
-    private ListView ListViewCategorie;
+
+    @FXML
+    private ListView<String> ListViewCategorie;
+
+    @FXML
     private CheckBox TypeCheck5Stars;
+
+    @FXML
     private CheckBox TypeCheck4Stars;
+
+    @FXML
     private CheckBox TypeCheck3Stars;
+
+    @FXML
     private CheckBox TypeCheck2Stars;
+
+    @FXML
     private CheckBox TypeCheck1Stars;
+
+    @FXML
     private Button ButtonFiltre;
+
+    @FXML
     private ListView ListViewResultat;
+
+    @FXML
+    private Pane PaneListViewCate;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+    }
 
     //Init du controller
     public void init(String token) {
