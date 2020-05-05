@@ -30,7 +30,7 @@ public class ClientConnexion{
     }
 
 
-    public List<String> run(){
+    public List<Serializable> run(){
 
         //nous n'allons faire que 10 demandes par thread...
         for(int i =0; i < 10; i++){
@@ -51,7 +51,7 @@ public class ClientConnexion{
                 //On attend la réponse
                 InputStream inputStream = connexion.getInputStream();
                 ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-                List<String> response = (List<String>) objectInputStream.readObject();
+                List<Serializable> response = (List<Serializable>) objectInputStream.readObject();
                 System.out.println("\t * " + name + " : Réponse reçue " + response);
                 return response;
 
@@ -69,7 +69,7 @@ public class ClientConnexion{
                 e.printStackTrace();
             }
         }
-        List<String> fail = new ArrayList<>();
+        List<Serializable> fail = new ArrayList<>();
         fail.add("auth_fail");
         return fail;
     }
