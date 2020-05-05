@@ -7,7 +7,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Pane;
 
 public class UserController {
 
@@ -28,7 +27,7 @@ public class UserController {
     private CheckBox TypeCheck2Stars;
     private CheckBox TypeCheck1Stars;
     private Button ButtonFiltre;
-    private Pane PaneResultat;
+    private ListView ListViewResultat;
 
     //Init du controller
     public void init(String token) {
