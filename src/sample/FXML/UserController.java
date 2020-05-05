@@ -69,19 +69,12 @@ public class UserController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) { //TODO Faire un compteur de mot (3 lignes max)
-        Media media1 = new Media(new byte[20],"titre", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem justo, vestibulum a felis sed, mattis scelerisque quam. Duis volutpat"+"\n"+" gravida enim, ac rutrum metus luctus faucibus. Duis dapibus vulputate est. Vivamus sed tincidunt ipsum, fermentum imperdiet sem."+"\n"+" Mauris laoreet malesuada est vel rhoncus. Ut sit amet leo bibendum, posuere diam quis, placerat nibh. Vivamus pulvinar vitae leo eget sodales. Aenean sollicitudin orci in velit congue, eget finibus enim pulvinar. Etiam ornare malesuada sodales. Praesent ac quam laoreet, porttitor ipsum quis, pharetra nibh. Quisque blandit eros nibh. Nulla mollis convallis vestibulum. Vestibulum pellentesque dolor nec eros finibus vestibulum. Morbi nec maximus velit, ac luctus est.", 5, 20);
-        Media media2 = new Media(new byte[20],"titre2", "description2", 5, 25);
-        Media media3 = new Media(new byte[20],"titre", "description", 10, 100);
-        Media media4 = new Media(new byte[20],"titre2", "description2", 5, 20);
-        Media media5 = new Media(new byte[20],"titre", "description", 10, 100);
-        Media media6 = new Media(new byte[20],"titre2", "description2", 5, 20);
-        Media media7 = new Media(new byte[20],"titre", "description", 10, 100);
-        Media media8 = new Media(new byte[20],"titre2", "description2", 5, 20);
-        Media media9 = new Media(new byte[20],"titre", "description", 10, 100);
-        Media media10 = new Media(new byte[20],"titre2", "description2", 5, 20);
 
-        //ObservableList<String> items = FXCollections.observableArrayList("test", "test2");
-        ObservableList<Media> items = FXCollections.observableArrayList(media1, media2, media3, media4, media5, media6, media7, media8, media9, media10);
+        byte[] data = {-84, -19, 0, 5};
+        Media media1 = new Media(data, "REF10214", "Titre 1", "William", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem justo, vestibulum a felis sed, mattis scelerisque quam. Duis volutpat"+"\n"+" gravida enim, ac rutrum metus luctus faucibus. Duis dapibus vulputate est. Vivamus sed tincidunt ipsum, fermentum imperdiet sem."+"\n"+" Mauris laoreet malesuada est vel rhoncus. Ut sit amet leo bibendum, posuere diam quis, placerat nibh. Vivamus pulvinar vitae leo eget sodales. Aenean sollicitudin orci in velit congue, eget finibus enim pulvinar. Etiam ornare malesuada sodales. Praesent ac quam laoreet, porttitor ipsum quis, pharetra nibh. Quisque blandit eros nibh. Nulla mollis convallis vestibulum. Vestibulum pellentesque dolor nec eros finibus vestibulum. Morbi nec maximus velit, ac luctus est.", 5, 20);
+        Media media2 = new Media(data, "REF12548", "Titre 2", "Edouard", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem justo, vestibulum a felis sed, mattis scelerisque quam. Duis volutpat"+"\n"+" gravida enim, ac rutrum metus luctus faucibus. Duis dapibus vulputate est. Vivamus sed tincidunt ipsum, fermentum imperdiet sem."+"\n"+" Mauris laoreet malesuada est vel rhoncus. Ut sit amet leo bibendum, posuere diam quis, placerat nibh. Vivamus pulvinar vitae leo eget sodales. Aenean sollicitudin orci in velit congue, eget finibus enim pulvinar. Etiam ornare malesuada sodales. Praesent ac quam laoreet, porttitor ipsum quis, pharetra nibh. Quisque blandit eros nibh. Nulla mollis convallis vestibulum. Vestibulum pellentesque dolor nec eros finibus vestibulum. Morbi nec maximus velit, ac luctus est.", 5, 5);
+
+        ObservableList<Media> items = FXCollections.observableArrayList(media1, media2);
         ListViewResultat.setCellFactory(lv -> new MediaListCell());
         ListViewResultat.setItems(items);
     }

@@ -2,12 +2,15 @@ package sample.FXML;
 
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
+import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import sample.Main;
 
 public class MediaListCell extends ListCell<Media> {
 
@@ -16,6 +19,7 @@ public class MediaListCell extends ListCell<Media> {
     private final Label titleLabel = new Label();
     private final Label descriptionLabel = new Label();
     private final Label rateLabel = new Label();
+    private final Button moreButton = new Button();
     private final ImageView mediaIcon = new ImageView();
     private final AnchorPane content = new AnchorPane();
 
@@ -38,6 +42,10 @@ public class MediaListCell extends ListCell<Media> {
         rateLabel.setStyle("-fx-opacity: 0.75;");
         GridPane.setConstraints(rateLabel, 1, 2);
         //
+        moreButton.setStyle("-fx-background-color: #00adb5");
+        moreButton.setTextFill(Color.WHITE);
+        GridPane.setConstraints(moreButton, 2, 2);
+        //
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.NEVER, HPos.LEFT, true));
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.ALWAYS, HPos.LEFT, true));
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.NEVER, HPos.LEFT, true));
@@ -47,7 +55,7 @@ public class MediaListCell extends ListCell<Media> {
         gridPane.getRowConstraints().add(new RowConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.ALWAYS, VPos.CENTER, true));
         gridPane.setHgap(6);
         gridPane.setVgap(6);
-        gridPane.getChildren().setAll(mediaIcon, titleLabel, authorLabel, descriptionLabel, rateLabel);
+        gridPane.getChildren().setAll(mediaIcon, titleLabel, authorLabel, descriptionLabel, rateLabel, moreButton);
         gridPane.setPrefWidth(100.0);
         AnchorPane.setTopAnchor(gridPane, 0d);
         AnchorPane.setLeftAnchor(gridPane, 0d);
@@ -63,11 +71,12 @@ public class MediaListCell extends ListCell<Media> {
         setText(null);
         setContentDisplay(ContentDisplay.LEFT);
         if (!empty && item != null) {
-            authorLabel.setText(item.getTitle());
+            authorLabel.setText(item.getAuthor());
             titleLabel.setText(item.getTitle());
-            mediaIcon.setImage(new Image(MediaListCell.class.getResourceAsStream("Profil.png")));
+            mediaIcon.setImage(new Image(Main.class.getResourceAsStream("FXML/logo.png")));
             descriptionLabel.setText(item.getDescription());
             rateLabel.setText(String.format("%d/5 étoiles (%d évaluations)", item.getRate(), item.getNbRate()));
+            moreButton.setText("+ de détails !");
             setText(null);
             setGraphic(content);
             setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
