@@ -53,6 +53,7 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
+                  <ListView fx:id="ListViewCategorie" layoutX="40.0" layoutY="210.0" prefHeight="188.0" prefWidth="148.0" />
                   <CheckBox fx:id="TypeCheck4Stars" layoutX="39.0" layoutY="483.0" mnemonicParsing="false" onMouseClicked="#Select4Stars" prefHeight="17.0" prefWidth="19.0">
                      <font>
                         <Font size="18.0" />
@@ -99,7 +100,6 @@
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <Pane fx:id="PaneListViewCate" layoutX="14.0" layoutY="205.0" prefHeight="200.0" prefWidth="169.0" />
                </children>
             </Pane>
          </left>
@@ -126,14 +126,14 @@
                         <Image url="@logo.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="ButtonEmprunt" layoutX="860.0" layoutY="57.0" mnemonicParsing="false" onMouseClicked="#AfficherEmprunt" text="🔎🛒" />
+                  <Button fx:id="ButtonEmprunt" layoutX="860.0" layoutY="57.0" mnemonicParsing="false" onMouseClicked="#AfficherEmprunt" text="🔎🔎🔎🔎🛒" />
                </children>
             </Pane>
          </top>
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <ListView prefHeight="646.0" prefWidth="825.0" />
+                  <ListView fx:id="ListViewResultat" prefHeight="646.0" prefWidth="825.0" />
                </children>
             </Pane>
          </center>

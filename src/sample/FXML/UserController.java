@@ -1,5 +1,7 @@
 package sample.FXML;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -39,7 +41,7 @@ public class UserController implements Initializable {
     private CheckBox TypeCheckLivre;
 
     @FXML
-    private ListView<String> ListViewCategorie;
+    private ListView<String> ListViewCategorie = new ListView<String>();
 
     @FXML
     private CheckBox TypeCheck5Stars;
@@ -60,13 +62,28 @@ public class UserController implements Initializable {
     private Button ButtonFiltre;
 
     @FXML
-    private ListView ListViewResultat;
+    private ListView<Media> ListViewResultat = new ListView<Media>();
 
     @FXML
     private Pane PaneListViewCate;
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) { //TODO Faire un compteur de mot (3 lignes max)
+        Media media1 = new Media(new byte[20],"titre", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem justo, vestibulum a felis sed, mattis scelerisque quam. Duis volutpat"+"\n"+" gravida enim, ac rutrum metus luctus faucibus. Duis dapibus vulputate est. Vivamus sed tincidunt ipsum, fermentum imperdiet sem."+"\n"+" Mauris laoreet malesuada est vel rhoncus. Ut sit amet leo bibendum, posuere diam quis, placerat nibh. Vivamus pulvinar vitae leo eget sodales. Aenean sollicitudin orci in velit congue, eget finibus enim pulvinar. Etiam ornare malesuada sodales. Praesent ac quam laoreet, porttitor ipsum quis, pharetra nibh. Quisque blandit eros nibh. Nulla mollis convallis vestibulum. Vestibulum pellentesque dolor nec eros finibus vestibulum. Morbi nec maximus velit, ac luctus est.", 5, 20);
+        Media media2 = new Media(new byte[20],"titre2", "description2", 5, 25);
+        Media media3 = new Media(new byte[20],"titre", "description", 10, 100);
+        Media media4 = new Media(new byte[20],"titre2", "description2", 5, 20);
+        Media media5 = new Media(new byte[20],"titre", "description", 10, 100);
+        Media media6 = new Media(new byte[20],"titre2", "description2", 5, 20);
+        Media media7 = new Media(new byte[20],"titre", "description", 10, 100);
+        Media media8 = new Media(new byte[20],"titre2", "description2", 5, 20);
+        Media media9 = new Media(new byte[20],"titre", "description", 10, 100);
+        Media media10 = new Media(new byte[20],"titre2", "description2", 5, 20);
+
+        //ObservableList<String> items = FXCollections.observableArrayList("test", "test2");
+        ObservableList<Media> items = FXCollections.observableArrayList(media1, media2, media3, media4, media5, media6, media7, media8, media9, media10);
+        ListViewResultat.setCellFactory(lv -> new MediaListCell());
+        ListViewResultat.setItems(items);
     }
 
     //Init du controller

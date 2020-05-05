@@ -126,14 +126,14 @@
                         <Image url="@logo.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="ButtonEmprunt" layoutX="860.0" layoutY="57.0" mnemonicParsing="false" onMouseClicked="#AfficherEmprunt" text="🔎🛒" />
+                  <Button fx:id="ButtonEmprunt" layoutX="860.0" layoutY="57.0" mnemonicParsing="false" onMouseClicked="#AfficherEmprunt" text="🔎🔎🔎🔎🛒" />
                </children>
             </Pane>
          </top>
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <ListView prefHeight="646.0" prefWidth="825.0" />
+                  <ListView fx:id="ListViewResultat" prefHeight="646.0" prefWidth="825.0" />
                </children>
             </Pane>
          </center>
