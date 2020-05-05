@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import sample.ClientConnexion;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -56,7 +57,7 @@ public class LoginController {
                 commandes.add(TextPass.getText());
 
                 ClientConnexion connexion = new ClientConnexion("127.0.0.1", 2345, commandes);
-                List<String> response = connexion.run();
+                List<Serializable> response = connexion.run();
 
                 if (response.get(0).equals("OK")) {
                     if (response.get(2).equals("0")) {
@@ -64,11 +65,11 @@ public class LoginController {
                         LoginError.setText("Vous êtes banni veuillez contacter un administrateur");
                         isRunning = false;
                     } else if (response.get(2).equals("1")) {
-                        ChangePane("UserInterface.fxml", response.get(1));
+                        ChangePane("UserInterface.fxml", (String)response.get(1));
                     } else if (response.get(2).equals("2")) {
-                        ChangePane("OperateurInterface.fxml", response.get(1));
+                        ChangePane("OperateurInterface.fxml", (String)response.get(1));
                     } else if (response.get(2).equals("3")) {
-                        ChangePane("AdminInterface.fxml", response.get(1));
+                        ChangePane("AdminInterface.fxml", (String)response.get(1));
                     }
                 } else {
                     LoginError.setVisible(true);
