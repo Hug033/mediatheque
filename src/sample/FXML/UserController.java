@@ -15,7 +15,6 @@ import javafx.scene.layout.Pane;
 import sample.ClientConnexion;
 
 import java.io.Serializable;
-import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -74,14 +73,18 @@ public class UserController implements Initializable {
     private Pane PaneListViewCate;
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) { //TODO Faire un compteur de mot (3 lignes max)
-
+    public void initialize(URL url, ResourceBundle rb) {
 
     }
 
     //Init du controller
     public void init(String token) {
         this.token = token;
+    }
+
+    //Methode pour split la description
+    public String SplitDescription(String description) {
+        return description.substring(0, 135) + "\n" + description.substring(136, 271) + "\n" + description.substring(272, 407);
     }
 
     //Verif si on tape entrer pour lancer la recherche plus vite
@@ -119,65 +122,23 @@ public class UserController implements Initializable {
     //Méthode Quand on clique sur le selectDVD
     @FXML
     private void SelectDVD() {
-        ListViewResultat.getItems().clear();
-        TypeCheckLivre.setSelected(false);
-        TypeCheckCD.setSelected(false);
-        TypeCheck1Stars.setSelected(false);
-        TypeCheck2Stars.setSelected(false);
-        TypeCheck3Stars.setSelected(false);
-        TypeCheck4Stars.setSelected(false);
-        TypeCheck5Stars.setSelected(false);
-
-        List<String> commandes = new ArrayList<>();
-        commandes.add("LIST");
-        commandes.add("DVD");
-        ClientConnexion connexion = new ClientConnexion("127.0.0.1", 2345, commandes);
-        List<Serializable> response = connexion.run();
-        ArrayList<Media> back = new Gson().fromJson((String)response.get(0), ArrayList.class);
-        ObservableList<Media> items = FXCollections.observableArrayList();
-
-        for(int i = 0; i < back.size(); i++) {
-            Media temp = new Gson().fromJson(String.valueOf(back.get(i)), Media.class);
-            System.out.println(temp);
-            items.add(temp);
-        }
-        ListViewResultat.setCellFactory(lv -> new MediaListCell());
-        ListViewResultat.setItems(items);
+        SelectTypeMedia("DVD");
     }
 
     //Méthode Quand on clique sur le selectCD
     @FXML
     private void SelectCD() {
-        ListViewResultat.getItems().clear();
-        TypeCheckLivre.setSelected(false);
-        TypeCheckDVD.setSelected(false);
-        TypeCheck1Stars.setSelected(false);
-        TypeCheck2Stars.setSelected(false);
-        TypeCheck3Stars.setSelected(false);
-        TypeCheck4Stars.setSelected(false);
-        TypeCheck5Stars.setSelected(false);
-
-        List<String> commandes = new ArrayList<>();
-        commandes.add("LIST");
-        commandes.add("CD");
-        ClientConnexion connexion = new ClientConnexion("127.0.0.1", 2345, commandes);
-        List<Serializable> response = connexion.run();
-        ArrayList<Media> back = new Gson().fromJson((String)response.get(0), ArrayList.class);
-        ObservableList<Media> items = FXCollections.observableArrayList();
-
-        for(int i = 0; i < back.size(); i++) {
-            Media temp = new Gson().fromJson(String.valueOf(back.get(i)), Media.class);
-            System.out.println(temp);
-            items.add(temp);
-        }
-        ListViewResultat.setCellFactory(lv -> new MediaListCell());
-        ListViewResultat.setItems(items);
-
+        SelectTypeMedia("CD");
     }
 
     //Méthode Quand on clique sur le selectLivre
     @FXML
     private void SelectLivre() {
+        SelectTypeMedia("LIVRE");
+    }
+
+    //Méthode Lors de la séléction d'un type de média
+    public void SelectTypeMedia(String type) {
         ListViewResultat.getItems().clear();
         TypeCheckDVD.setSelected(false);
         TypeCheckCD.setSelected(false);
@@ -189,7 +150,7 @@ public class UserController implements Initializable {
 
         List<String> commandes = new ArrayList<>();
         commandes.add("LIST");
-        commandes.add("LIVRE");
+        commandes.add(type);
         ClientConnexion connexion = new ClientConnexion("127.0.0.1", 2345, commandes);
         List<Serializable> response = connexion.run();
         ArrayList<Media> back = new Gson().fromJson((String)response.get(0), ArrayList.class);
@@ -207,30 +168,35 @@ public class UserController implements Initializable {
     // Méthode quand on clique sur le Select5
     @FXML
     private void Select5Stars() {
-
+        SelectRateMedia(5);
     }
 
     // Méthode quand on clique sur le Select4
     @FXML
     private void Select4Stars() {
-
+        SelectRateMedia(4);
     }
 
     // Méthode quand on clique sur le Select3
     @FXML
     private void Select3Stars() {
-
+        SelectRateMedia(3);
     }
 
     // Méthode quand on clique sur le Select2
     @FXML
     private void Select2Stars() {
-
+        SelectRateMedia(2);
     }
 
     // Méthode quand on clique sur le Select1
     @FXML
     private void Select1Stars() {
+        SelectRateMedia(1);
+    }
+
+    //Méthode Lors de la séléction d'une note de media
+    private void SelectRateMedia(int Rate) {
 
     }
 }
