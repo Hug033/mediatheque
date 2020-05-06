@@ -54,7 +54,11 @@ public class LoginController {
                 List<String> commandes = new ArrayList<>();
                 commandes.add("auth");
                 commandes.add(TextEmail.getText());
-                commandes.add(TextPass.getText());
+
+                int hash = 7;
+                for (int i = 0; i < TextPass.getText().length(); i++)
+                    hash = hash * 31 + TextPass.getText().charAt(i);
+                commandes.add(String.valueOf(hash));
 
                 ClientConnexion connexion = new ClientConnexion("127.0.0.1", 2345, commandes);
                 List<Serializable> response = connexion.run();

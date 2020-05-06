@@ -64,7 +64,7 @@ public class UserController implements Initializable {
     private CheckBox TypeCheck1Stars;
 
     @FXML
-    private Button ButtonFiltre;
+    private Button ButtonActu;
 
     @FXML
     private ListView<Media> ListViewResultat = new ListView<Media>();
@@ -110,12 +110,6 @@ public class UserController implements Initializable {
     // Méthode pour afficher le pane de compte
     @FXML
     private void AfficherCompte() {
-
-    }
-
-    // Méthode pour filtrer la recherche
-    @FXML
-    private void Filtrer() {
 
     }
 

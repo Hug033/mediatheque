@@ -74,7 +74,7 @@
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <Button fx:id="ButtonFiltre" layoutX="13.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#Filtrer" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="Filtrer" />
+                  <Button fx:id="ButtonActu" layoutX="13.0" layoutY="606.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="Actualiser" />
                   <Label layoutX="66.0" layoutY="438.0" prefHeight="63.0" prefWidth="162.0" text="★★★★★" textAlignment="CENTER" textFill="#ffc83d">
                      <font>
                         <Font size="26.0" />
@@ -126,7 +126,7 @@
                         <Image url="@logo.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="ButtonEmprunt" layoutX="860.0" layoutY="57.0" mnemonicParsing="false" onMouseClicked="#AfficherEmprunt" text="🔎🔎🔎🔎🛒" />
+                  <Button fx:id="ButtonEmprunt" layoutX="860.0" layoutY="57.0" mnemonicParsing="false" onMouseClicked="#AfficherEmprunt" text="🛒" />
                </children>
             </Pane>
          </top>

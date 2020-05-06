@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
@@ -14,10 +15,12 @@ import javafx.scene.layout.Pane;
 import sample.ClientConnexion;
 
 import java.io.Serializable;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class OperateurController {
+public class OperateurController implements Initializable {
 
     private String token;
 
@@ -62,6 +65,8 @@ public class OperateurController {
 
     private ArrayList<Media> saveList = null;
 
+
+    //Méthode d'initilisation
 
     //Init du controller
     public void init(String token) {
@@ -201,6 +206,11 @@ public class OperateurController {
     // Méthode pour filtrer la recherche
     @FXML
     private void Filtrer() {
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 }
