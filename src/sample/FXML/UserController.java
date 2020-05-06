@@ -3,19 +3,20 @@ package sample.FXML;
 import com.google.gson.Gson;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import sample.ClientConnexion;
 
 import java.io.Serializable;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -64,27 +65,67 @@ public class UserController implements Initializable {
     private CheckBox TypeCheck1Stars;
 
     @FXML
+    private Label titleMedia;
+
+    @FXML
+    private TextArea descriptionMedia;
+
+    @FXML
+    private Label noteMedia;
+
+    @FXML
+    private Label statusMedia;
+
+    @FXML
+    private DatePicker dateEmprunt;
+
+    @FXML
     private Button ButtonActu;
 
     @FXML
+    private Pane detailPane;
+
+    @FXML
+    private Pane canReserve;
+
+    @FXML
     private ListView<Media> ListViewResultat = new ListView<Media>();
+
+    ArrayList<Media> saveList = new ArrayList<Media>();
 
     @FXML
     private Pane PaneListViewCate;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        List<String> commandes = new ArrayList<>();
+        commandes.add("LIST");
+        commandes.add("DVD");
+        ClientConnexion connexion = new ClientConnexion("127.0.0.1", 2345, commandes);
+        List<Serializable> response = connexion.run();
+        ArrayList<Media> back = new Gson().fromJson((String)response.get(0), ArrayList.class);
+        saveList = back;
+        ObservableList<Media> items = FXCollections.observableArrayList();
+        TypeCheckDVD.setSelected(true);
 
+        for(int i = 0; i < back.size(); i++) {
+            Media temp = new Gson().fromJson(String.valueOf(back.get(i)), Media.class);
+            System.out.println(temp);
+            items.add(temp);
+        }
+        ListViewResultat.setCellFactory(lv -> new MediaListCell());
+        ListViewResultat.setItems(items);
+        ListViewResultat.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                AfficherCompte(ListViewResultat.getSelectionModel().getSelectedItem());
+            }
+        });
     }
 
     //Init du controller
     public void init(String token) {
         this.token = token;
-    }
-
-    //Methode pour split la description
-    public String SplitDescription(String description) {
-        return description.substring(0, 135) + "\n" + description.substring(136, 271) + "\n" + description.substring(272, 407);
     }
 
     //Verif si on tape entrer pour lancer la recherche plus vite
@@ -107,10 +148,45 @@ public class UserController implements Initializable {
 
     }
 
+    //Methode pour split la description
+    public String SplitDescription(String description) {
+        if (description.length() < 136) {
+            return description;
+        } else if (description.length() >= 136 && description.length() < 272) {
+            return description.substring(0, 135) + "\n" + description.substring(136, 271);
+        } else {
+            return description.substring(0, 135) + "\n" + description.substring(136, 271) + "\n" + description.substring(272, 407);
+        }
+    }
+
     // Méthode pour afficher le pane de compte
     @FXML
-    private void AfficherCompte() {
+    private void AfficherCompte(Media m) {
+        ListViewResultat.setVisible(false);
+        titleMedia.setText(m.getTitle());
+        descriptionMedia.setText(SplitDescription(m.getDescription()));
+        noteMedia.setText(String.valueOf(m.getRate()) + "/5");
+        String status = "";
+        statusMedia.setTextFill(Color.RED);
+        if(m.getState() == 1)
+            status = "Réservé";
+        else if(m.getState() == 2)
+            status = "Réservé";
+        else if(m.getState() == 3)
+            status = "Réservé";
+        else {
+            statusMedia.setTextFill(Color.GREEN);
+            status = "Libre";
+        }
+        statusMedia.setText(status);
+        canReserve.setVisible(m.getState() == 0);
+        detailPane.setVisible(true);
+    }
 
+    @FXML
+    private void back() {
+        ListViewResultat.setVisible(true);
+        detailPane.setVisible(false);
     }
 
     //Méthode Quand on clique sur le selectDVD
@@ -131,6 +207,20 @@ public class UserController implements Initializable {
         SelectTypeMedia("LIVRE");
     }
 
+    @FXML
+    private void reserve() {
+        LocalDate localDate = dateEmprunt.getValue();
+        LocalDate current30 = localDate.plusMonths(30);
+        List<String> commandes = new ArrayList<>();
+        commandes.add("ADD_RESERVE");
+        commandes.add(localDate.toString());
+        commandes.add(current30.toString());
+        commandes.add(ListViewResultat.getSelectionModel().getSelectedItem().getRef());
+        ClientConnexion connexion = new ClientConnexion("127.0.0.1", 2345, commandes);
+        List<Serializable> response = connexion.run();
+
+    }
+
     //Méthode Lors de la séléction d'un type de média
     public void SelectTypeMedia(String type) {
         ListViewResultat.getItems().clear();
@@ -149,6 +239,7 @@ public class UserController implements Initializable {
         ClientConnexion connexion = new ClientConnexion("127.0.0.1", 2345, commandes);
         List<Serializable> response = connexion.run();
         ArrayList<Media> back = new Gson().fromJson((String)response.get(0), ArrayList.class);
+        saveList = back;
         ObservableList<Media> items = FXCollections.observableArrayList();
 
         for(int i = 0; i < back.size(); i++) {
@@ -192,6 +283,20 @@ public class UserController implements Initializable {
 
     //Méthode Lors de la séléction d'une note de media
     private void SelectRateMedia(int Rate) {
+        TypeCheck1Stars.setSelected(Rate == 1);
+        TypeCheck2Stars.setSelected(Rate == 2);
+        TypeCheck3Stars.setSelected(Rate == 3);
+        TypeCheck4Stars.setSelected(Rate == 4);
+        TypeCheck5Stars.setSelected(Rate == 5);
+        ListViewResultat.getItems().clear();
+        ObservableList<Media> items = FXCollections.observableArrayList();
 
+        for(int i = 0; i < saveList.size(); i++) {
+            Media temp = new Gson().fromJson(String.valueOf(saveList.get(i)), Media.class);
+            if(temp.getRate() >= Rate)
+                items.add(temp);
+        }
+        ListViewResultat.setCellFactory(lv -> new MediaListCell());
+        ListViewResultat.setItems(items);
     }
 }

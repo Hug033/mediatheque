@@ -21,7 +21,7 @@ public class MediaListCell extends ListCell<Media> {
     private final Label titleLabel = new Label();
     private final Label descriptionLabel = new Label();
     private final Label rateLabel = new Label();
-    private final Button moreButton = new Button();
+    private final Label moreButton = new Label();
     private final ImageView mediaIcon = new ImageView();
     private final AnchorPane content = new AnchorPane();
 
@@ -44,7 +44,7 @@ public class MediaListCell extends ListCell<Media> {
         rateLabel.setStyle("-fx-opacity: 0.75;");
         GridPane.setConstraints(rateLabel, 1, 2);
         //
-        moreButton.setStyle("-fx-background-color: #00adb5");
+        moreButton.setStyle("-fx-background-color: #00adb5; -fx-padding: 10; -fx-border-radius: 5");
         moreButton.setTextFill(Color.WHITE);
         GridPane.setConstraints(moreButton, 2, 2);
         //
@@ -85,12 +85,23 @@ public class MediaListCell extends ListCell<Media> {
                 title += " (en stock)";
             titleLabel.setText(title);
             mediaIcon.setImage(new Image(Main.class.getResourceAsStream("FXML/logo.png")));
-            descriptionLabel.setText(item.getDescription());
-            rateLabel.setText(String.format("%d/5 étoiles (%d évaluations)", item.getRate(), item.getNbRate()));
+            descriptionLabel.setText(SplitDescription(item.getDescription()));
+            rateLabel.setText(String.format("%s/5 étoiles (%d évaluations)", String.valueOf(item.getRate()), item.getNbRate()));
             moreButton.setText("+ de détails !");
             setText(null);
             setGraphic(content);
             setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+        }
+    }
+
+    //Methode pour split la description
+    public String SplitDescription(String description) {
+        if (description.length() < 136) {
+            return description;
+        } else if (description.length() >= 136 && description.length() < 272) {
+            return description.substring(0, 135) + "\n" + description.substring(136, 271);
+        } else {
+            return description.substring(0, 135) + "\n" + description.substring(136, 271) + "\n" + description.substring(272, 407);
         }
     }
 }
