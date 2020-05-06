@@ -34,7 +34,7 @@ public class UserListCell extends ListCell<User> {
         regitrationLabel.setStyle("-fx-font-size: 0.9em; -fx-font-style: italic; -fx-opacity: 0.5;");
         GridPane.setConstraints(regitrationLabel, 2, 0);
         //
-        statusLabel.setStyle("-fx-opacity: 0.75;");
+        statusLabel.setStyle("-fx-font-size: 20.0;");
         GridPane.setConstraints(statusLabel, 1, 1);
         GridPane.setColumnSpan(statusLabel, Integer.MAX_VALUE);
         //
@@ -68,7 +68,16 @@ public class UserListCell extends ListCell<User> {
         setContentDisplay(ContentDisplay.LEFT);
         if (!empty && item != null) {
             nameLabel.setText(item.getFirstname() + " " + item.getLastname());
-            statusLabel.setText(String.valueOf(item.getState()));
+            String title = "";
+            if(item.getState() == 0)
+                title += " Banni";
+            else if (item.getState() == 1)
+                title += " Lecteur";
+            else if (item.getState() == 2)
+                title += "  Opérateur";
+            else if (item.getState() == 3)
+                title += "  Administrateur";
+            statusLabel.setText(title);
             profilIcon.setImage(new Image(Main.class.getResourceAsStream("FXML/Profil.png")));
             regitrationLabel.setText(item.getRegistration());
             moreButton.setText("+ de détails !");

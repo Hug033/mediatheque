@@ -18,7 +18,7 @@
          <left>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #393e46;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="ButtonFiltre" layoutX="13.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#Filtrer" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="Filtrer" />
+                  <Button fx:id="ButtonFiltre" layoutX="13.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#loadList" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="Actualiser" textFill="WHITE" />
                   <Label layoutX="13.0" layoutY="14.0" prefHeight="38.0" prefWidth="168.0" text="Type status :" textFill="WHITE" underline="true">
                      <font>
                         <Font size="22.0" />
@@ -35,6 +35,11 @@
                      </font>
                   </CheckBox>
                   <CheckBox fx:id="TypeCheckAdmin" layoutX="26.0" layoutY="141.0" mnemonicParsing="false" onMouseClicked="#SelectAdministrateur" prefHeight="27.0" prefWidth="172.0" text="Administrateur" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="TypeCheckBanni" layoutX="26.0" layoutY="177.0" mnemonicParsing="false" onMouseClicked="#SelectBan" prefHeight="17.0" prefWidth="149.0" text="Banni" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -68,7 +73,7 @@
          <center>
             <Pane fx:id="PaneResultat" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eeeeee;" BorderPane.alignment="CENTER">
                <children>
-                  <ListView prefHeight="646.0" prefWidth="825.0" visible="false" />
+                  <ListView fx:id="ListViewResultat" prefHeight="646.0" prefWidth="825.0" />
                   <Pane prefHeight="646.0" prefWidth="827.0" visible="false">
                      <children>
                         <Button fx:id="ButtonFiltre1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#Filtrer" prefHeight="25.0" prefWidth="42.0" style="-fx-background-color: #00adb5;" text="⬅" textFill="WHITE" />
