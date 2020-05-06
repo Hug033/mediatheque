@@ -140,8 +140,9 @@ public class UserController implements Initializable {
     //Méthode Lors de la séléction d'un type de média
     public void SelectTypeMedia(String type) {
         ListViewResultat.getItems().clear();
-        TypeCheckDVD.setSelected(false);
-        TypeCheckCD.setSelected(false);
+        TypeCheckDVD.setSelected(type.equals("DVD"));
+        TypeCheckCD.setSelected(type.equals("CD"));
+        TypeCheckLivre.setSelected(type.equals("LIVRE"));
         TypeCheck1Stars.setSelected(false);
         TypeCheck2Stars.setSelected(false);
         TypeCheck3Stars.setSelected(false);
