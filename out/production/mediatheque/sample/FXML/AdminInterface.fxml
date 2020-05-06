@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.PasswordField?>
@@ -18,7 +20,7 @@
          <left>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #393e46;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="ButtonFiltre" layoutX="13.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#loadList" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="Actualiser" textFill="WHITE" />
+                  <Button fx:id="ButtonFiltre" layoutX="13.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#AddUser" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="+ Uilisateur" textFill="WHITE" />
                   <Label layoutX="13.0" layoutY="14.0" prefHeight="38.0" prefWidth="168.0" text="Type status :" textFill="WHITE" underline="true">
                      <font>
                         <Font size="22.0" />
@@ -44,6 +46,7 @@
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
+                  <Button fx:id="ButtonFiltre1" layoutX="13.0" layoutY="571.0" mnemonicParsing="false" onMouseClicked="#loadList" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="Actualiser" textFill="WHITE" />
                </children>
             </Pane>
          </left>
@@ -52,7 +55,7 @@
                <children>
                   <TextField fx:id="InputRecherche" layoutX="200.0" layoutY="52.0" onKeyPressed="#VerifTouche" prefHeight="37.0" prefWidth="601.0" promptText="Rechercher des utilisateurs ..." />
                   <Button fx:id="ButtonRecherche" layoutX="797.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#Recherche" prefHeight="36.0" prefWidth="42.0" text="🔎" />
-                  <ImageView fx:id="ImageProfil" fitHeight="96.0" fitWidth="76.0" layoutX="906.0" layoutY="14.0" onMouseClicked="#AfficherCompte" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ImageProfil" fitHeight="96.0" fitWidth="76.0" layoutX="906.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Profil.png" />
                      </image>
@@ -74,9 +77,9 @@
             <Pane fx:id="PaneResultat" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eeeeee;" BorderPane.alignment="CENTER">
                <children>
                   <ListView fx:id="ListViewResultat" prefHeight="646.0" prefWidth="825.0" />
-                  <Pane prefHeight="646.0" prefWidth="827.0" visible="false">
+                  <Pane fx:id="PaneResultat" prefHeight="646.0" prefWidth="827.0" visible="false">
                      <children>
-                        <Button fx:id="ButtonFiltre1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#Filtrer" prefHeight="25.0" prefWidth="42.0" style="-fx-background-color: #00adb5;" text="⬅" textFill="WHITE" />
+                        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="25.0" prefWidth="42.0" style="-fx-background-color: #00adb5;" text="⬅" textFill="WHITE" />
                         <ImageView fitHeight="254.0" fitWidth="363.0" layoutX="72.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Profil.png" />
@@ -84,7 +87,7 @@
                         </ImageView>
                         <Pane layoutX="251.0" layoutY="69.0" prefHeight="253.0" prefWidth="512.0" style="-fx-background-color: #00adb5;">
                            <children>
-                              <Label layoutX="9.0" layoutY="12.0" prefHeight="49.0" prefWidth="231.0" text="Prenom NOM" textFill="WHITE">
+                              <Label fx:id="Name" layoutX="9.0" layoutY="12.0" prefHeight="49.0" prefWidth="231.0" text="Prenom NOM" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="22.0" />
                                  </font>
@@ -94,7 +97,7 @@
                                     <Font name="System Bold" size="19.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="180.0" layoutY="60.0" prefHeight="49.0" prefWidth="175.0" text="01/01/0001" textFill="WHITE">
+                              <Label fx:id="birthday" layoutX="180.0" layoutY="60.0" prefHeight="49.0" prefWidth="175.0" text="01/01/0001" textFill="WHITE">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -104,7 +107,7 @@
                                     <Font name="System Bold" size="19.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="180.0" layoutY="97.0" prefHeight="49.0" prefWidth="175.0" text="user@login.com" textFill="WHITE">
+                              <Label fx:id="email" layoutX="180.0" layoutY="97.0" prefHeight="49.0" prefWidth="175.0" text="user@login.com" textFill="WHITE">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -114,7 +117,7 @@
                                     <Font name="System Bold" size="19.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="182.0" layoutY="135.0" prefHeight="49.0" prefWidth="175.0" text="+33.00.00.00.00.00" textFill="WHITE">
+                              <Label fx:id="phone" layoutX="182.0" layoutY="135.0" prefHeight="49.0" prefWidth="175.0" text="+33.00.00.00.00.00" textFill="WHITE">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -124,7 +127,7 @@
                                     <Font name="System Bold" size="19.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="183.0" layoutY="171.0" prefHeight="49.0" prefWidth="175.0" text="00/00/1205" textFill="WHITE">
+                              <Label fx:id="inscription" layoutX="183.0" layoutY="171.0" prefHeight="49.0" prefWidth="175.0" text="00/00/1205" textFill="WHITE">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -134,11 +137,12 @@
                                     <Font name="System Bold" size="19.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="184.0" layoutY="204.0" prefHeight="49.0" prefWidth="191.0" text="Banni à vie" textFill="WHITE">
+                              <Label fx:id="state" layoutX="184.0" layoutY="204.0" prefHeight="49.0" prefWidth="191.0" text="Banni à vie" textFill="WHITE">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
                               </Label>
+                              <Button fx:id="ChangeStatus" layoutX="364.0" layoutY="216.0" mnemonicParsing="false" onMouseClicked="#changeStatus" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: white;" text="-------" textFill="#00adb5" visible="false" />
                            </children>
                         </Pane>
                         <Pane layoutX="72.0" layoutY="333.0" prefHeight="263.0" prefWidth="693.0" style="-fx-background-color: #00adb5;">
@@ -148,25 +152,93 @@
                                     <Font name="System Bold" size="22.0" />
                                  </font>
                               </Label>
-                              <PasswordField layoutX="202.0" layoutY="99.0" prefHeight="25.0" prefWidth="212.0" />
+                              <PasswordField fx:id="NewPass" layoutX="202.0" layoutY="99.0" prefHeight="25.0" prefWidth="212.0" />
                               <Label layoutX="63.0" layoutY="87.0" prefHeight="49.0" prefWidth="140.0" text="Nouveau:" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="19.0" />
                                  </font>
                               </Label>
-                              <PasswordField layoutX="202.0" layoutY="139.0" prefHeight="25.0" prefWidth="213.0" />
+                              <PasswordField fx:id="ConfirmPass" layoutX="202.0" layoutY="139.0" prefHeight="25.0" prefWidth="213.0" />
                               <Label layoutX="63.0" layoutY="127.0" prefHeight="49.0" prefWidth="140.0" text="Confirmation:" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="19.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="ButtonFiltre11" layoutX="491.0" layoutY="209.0" mnemonicParsing="false" onMouseClicked="#Filtrer" prefHeight="44.0" prefWidth="190.0" style="-fx-background-color: white;" text="Enregistrer" textFill="#00adb5">
+                              <Button layoutX="491.0" layoutY="209.0" mnemonicParsing="false" onMouseClicked="#changePassword" prefHeight="44.0" prefWidth="190.0" style="-fx-background-color: white;" text="Enregistrer" textFill="#00adb5">
                                  <font>
                                     <Font size="21.0" />
                                  </font>
                               </Button>
                            </children>
                         </Pane>
+                        <Label fx:id="InfoLabel" layoutX="74.0" layoutY="596.0" prefHeight="17.0" prefWidth="691.0" text="---------------" textFill="#e55039" visible="false">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="AddUser" prefHeight="648.0" prefWidth="825.0" visible="false">
+                     <children>
+                        <Pane layoutX="118.0" layoutY="147.0" prefHeight="438.0" prefWidth="626.0" style="-fx-background-color: #00adb5;">
+                           <children>
+                              <Label layoutX="130.0" layoutY="383.0" prefHeight="38.0" prefWidth="137.0" text="Naissance:" textFill="WHITE">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="dateForm" layoutX="265.0" layoutY="388.0" prefHeight="28.0" prefWidth="196.0" />
+                              <TextField fx:id="emailForm" layoutX="265.0" layoutY="13.0" prefHeight="28.0" prefWidth="196.0" />
+                              <Label layoutX="130.0" layoutY="8.0" prefHeight="38.0" prefWidth="137.0" text="Email:" textFill="WHITE">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField fx:id="passwordForm" layoutX="265.0" layoutY="64.0" prefHeight="27.0" prefWidth="194.0" />
+                           </children>
+                        </Pane>
+                        <Label layoutX="246.0" layoutY="200.0" prefHeight="38.0" prefWidth="137.0" text="Password:" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="nomForm" layoutX="383.0" layoutY="306.0" prefHeight="28.0" prefWidth="196.0" />
+                        <Label layoutX="246.0" layoutY="301.0" prefHeight="38.0" prefWidth="137.0" text="Nom:" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="telephoneForm" layoutX="383.0" layoutY="395.0" prefHeight="28.0" prefWidth="196.0" />
+                        <Label layoutX="246.0" layoutY="390.0" prefHeight="38.0" prefWidth="137.0" text="Téléphone:" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="246.0" layoutY="434.0" prefHeight="38.0" prefWidth="137.0" text="Status:" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="statusForm" layoutX="383.0" layoutY="440.0" prefHeight="27.0" prefWidth="196.0" />
+                        <TextField fx:id="photoForm" layoutX="383.0" layoutY="489.0" prefHeight="28.0" prefWidth="196.0" />
+                        <Label layoutX="246.0" layoutY="484.0" prefHeight="38.0" prefWidth="137.0" text="Photo profil:" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="prenomForm" layoutX="384.0" layoutY="350.0" prefHeight="28.0" prefWidth="196.0" />
+                        <Label layoutX="247.0" layoutY="345.0" prefHeight="38.0" prefWidth="137.0" text="Prénom:" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutY="45.0" prefHeight="38.0" prefWidth="826.0" text="Ajouter un utilisateur" textAlignment="CENTER" textFill="#393e46">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="ButtonFiltre2" layoutX="347.0" layoutY="598.0" mnemonicParsing="false" onMouseClicked="#AddUserForm" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="Enregistrer" textFill="WHITE" />
+                        <Button layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="25.0" prefWidth="42.0" style="-fx-background-color: #00adb5;" text="⬅" textFill="WHITE" />
                      </children>
                   </Pane>
                </children></Pane>

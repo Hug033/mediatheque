@@ -18,7 +18,7 @@ public class UserListCell extends ListCell<User> {
     private final Label regitrationLabel = new Label();
     private final Label nameLabel = new Label();
     private final Label statusLabel = new Label();
-    private final Button moreButton = new Button();
+    private final Label moreButton = new Label();
     private final ImageView profilIcon = new ImageView();
     private final AnchorPane content = new AnchorPane();
 
@@ -38,7 +38,7 @@ public class UserListCell extends ListCell<User> {
         GridPane.setConstraints(statusLabel, 1, 1);
         GridPane.setColumnSpan(statusLabel, Integer.MAX_VALUE);
         //
-        moreButton.setStyle("-fx-background-color: #00adb5");
+        moreButton.setStyle("-fx-background-color: #00adb5; -fx-padding: 10; -fx-border-radius: 5");
         moreButton.setTextFill(Color.WHITE);
         GridPane.setConstraints(moreButton, 2, 2);
         //

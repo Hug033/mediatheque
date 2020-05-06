@@ -12,6 +12,8 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import sample.Main;
 
+import java.awt.event.ActionListener;
+
 public class MediaListCell extends ListCell<Media> {
 
     private final GridPane gridPane = new GridPane();
