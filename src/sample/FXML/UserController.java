@@ -98,27 +98,12 @@ public class UserController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        List<String> commandes = new ArrayList<>();
-        commandes.add("LIST");
-        commandes.add("DVD");
-        ClientConnexion connexion = new ClientConnexion("127.0.0.1", 2345, commandes);
-        List<Serializable> response = connexion.run();
-        ArrayList<Media> back = new Gson().fromJson((String)response.get(0), ArrayList.class);
-        saveList = back;
-        ObservableList<Media> items = FXCollections.observableArrayList();
-        TypeCheckDVD.setSelected(true);
-
-        for(int i = 0; i < back.size(); i++) {
-            Media temp = new Gson().fromJson(String.valueOf(back.get(i)), Media.class);
-            System.out.println(temp);
-            items.add(temp);
-        }
-        ListViewResultat.setCellFactory(lv -> new MediaListCell());
-        ListViewResultat.setItems(items);
+        SelectTypeMedia("DVD");
         ListViewResultat.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                AfficherCompte(ListViewResultat.getSelectionModel().getSelectedItem());
+                if(ListViewResultat.getSelectionModel().getSelectedItem() != null)
+                    AfficherCompte(ListViewResultat.getSelectionModel().getSelectedItem());
             }
         });
     }
@@ -238,6 +223,19 @@ public class UserController implements Initializable {
         commandes.add(type);
         ClientConnexion connexion = new ClientConnexion("127.0.0.1", 2345, commandes);
         List<Serializable> response = connexion.run();
+
+        List<String> commandes_2 = new ArrayList<>();
+        commandes_2.add("GET_CATEGORIE");
+
+        if(type.equals("LIVRE"))
+            commandes_2.add("1");
+        else if(type.equals("DVD"))
+            commandes_2.add("2");
+        else
+            commandes_2.add("3");
+        connexion = new ClientConnexion("127.0.0.1", 2345, commandes_2);
+        List<Serializable> response2 = connexion.run();
+
         ArrayList<Media> back = new Gson().fromJson((String)response.get(0), ArrayList.class);
         saveList = back;
         ObservableList<Media> items = FXCollections.observableArrayList();
@@ -249,6 +247,12 @@ public class UserController implements Initializable {
         }
         ListViewResultat.setCellFactory(lv -> new MediaListCell());
         ListViewResultat.setItems(items);
+
+        ObservableList<String> itemsString = FXCollections.observableArrayList();
+        List<String> list = (List<String>) response2.get(0);
+        for(int i = 0; i < list.size(); i++)
+            itemsString.add(list.get(i));
+        ListViewCategorie.setItems(itemsString);
     }
 
     // Méthode quand on clique sur le Select5
