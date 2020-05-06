@@ -90,8 +90,8 @@
          <center>
             <Pane fx:id="PaneResultat" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eeeeee;" BorderPane.alignment="CENTER">
                <children>
-                  <ListView fx:id="listA" prefHeight="647.0" prefWidth="825.0" />
-                  <Pane prefHeight="646.0" prefWidth="827.0">
+                  <ListView fx:id="ListViewResultat" prefHeight="647.0" prefWidth="825.0" />
+                  <Pane prefHeight="646.0" prefWidth="827.0" visible="false">
                      <children>
                         <Button fx:id="ButtonFiltre1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#Filtrer" prefHeight="25.0" prefWidth="42.0" style="-fx-background-color: #00adb5;" text="⬅" textFill="WHITE" />
                         <ImageView fitHeight="254.0" fitWidth="363.0" layoutX="72.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">

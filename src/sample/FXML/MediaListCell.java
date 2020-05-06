@@ -72,7 +72,16 @@ public class MediaListCell extends ListCell<Media> {
         setContentDisplay(ContentDisplay.LEFT);
         if (!empty && item != null) {
             authorLabel.setText(item.getAuthor());
-            titleLabel.setText(item.getTitle());
+            String title = item.getTitle();
+            if(item.getState() == 1)
+                title += " (a valider)";
+            else if (item.getState() == 2)
+                title += " (en cours)";
+            else if (item.getState() == 3)
+                title += " (en retard)";
+            else if (item.getState() == 0)
+                title += " (en stock)";
+            titleLabel.setText(title);
             mediaIcon.setImage(new Image(Main.class.getResourceAsStream("FXML/logo.png")));
             descriptionLabel.setText(item.getDescription());
             rateLabel.setText(String.format("%d/5 étoiles (%d évaluations)", item.getRate(), item.getNbRate()));
