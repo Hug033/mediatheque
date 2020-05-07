@@ -44,7 +44,8 @@ Le rôle Lecteur est le rôle pour chaque personne arrivant à la médiathèque 
 Un lecteur peut être banni lorsqu'il à trop de retard dans ses emprunt ou qu'il rend les média dégradé. Il est notifié lors d'un essai de connexion, un administrateur peut le dé-bannir.  
 
 <br/>
-<br/>
+<br/>  
+
 ### - Interface opérateur
 ---
 <img align="right" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/Operateur.png"/>
@@ -55,6 +56,7 @@ Le rôle Opérateur est le rôle d'une ou d'un médiathécaire. L'Opérateur per
 
 <br/>
 <br/>  
+
 ### - Interface administrateur
 ---
 <img align="left" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/Admin.png"/>
