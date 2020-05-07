@@ -124,7 +124,21 @@ public class UserController implements Initializable {
     // Méthode de Recherche sur ce qu'on à rentrer
     @FXML
     private void Recherche() {
+        ObservableList<Media> items = FXCollections.observableArrayList();
+        TypeCheck1Stars.setSelected(false);
+        TypeCheck2Stars.setSelected(false);
+        TypeCheck3Stars.setSelected(false);
+        TypeCheck4Stars.setSelected(false);
+        TypeCheck5Stars.setSelected(false);
 
+        for(int i = 0; i < saveList.size(); i++) {
+            Media temp = new Gson().fromJson(String.valueOf(saveList.get(i)), Media.class);
+            if(temp.getTitle().contains(InputRecherche.getText()))
+                items.add(temp);
+        }
+        ListViewResultat.setCellFactory(lv -> new MediaListCell());
+        ListViewResultat.setItems(items);
+        refresh();
     }
 
     // Méthode pour afficher le pane d'emprunt
@@ -195,7 +209,7 @@ public class UserController implements Initializable {
     @FXML
     private void reserve() {
         LocalDate localDate = dateEmprunt.getValue();
-        LocalDate current30 = localDate.plusMonths(30);
+        LocalDate current30 = localDate.plusMonths(1);
         List<String> commandes = new ArrayList<>();
         commandes.add("ADD_RESERVE");
         commandes.add(localDate.toString());
@@ -203,7 +217,9 @@ public class UserController implements Initializable {
         commandes.add(ListViewResultat.getSelectionModel().getSelectedItem().getRef());
         ClientConnexion connexion = new ClientConnexion("127.0.0.1", 2345, commandes);
         List<Serializable> response = connexion.run();
-
+        canReserve.setVisible(false);
+        statusMedia.setText("Réservé");
+        statusMedia.setTextFill(Color.RED);
     }
 
     //Méthode Lors de la séléction d'un type de média
@@ -302,5 +318,10 @@ public class UserController implements Initializable {
         }
         ListViewResultat.setCellFactory(lv -> new MediaListCell());
         ListViewResultat.setItems(items);
+    }
+
+    @FXML
+    private void refresh() {
+        SelectTypeMedia("DVD");
     }
 }

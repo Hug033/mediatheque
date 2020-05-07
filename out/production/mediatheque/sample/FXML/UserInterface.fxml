@@ -71,7 +71,7 @@
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <Button fx:id="ButtonActu" layoutX="13.0" layoutY="606.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="Actualiser" />
+                  <Button fx:id="ButtonActu" layoutX="13.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#refresh" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="Actualiser" />
                   <Label layoutX="66.0" layoutY="438.0" prefHeight="63.0" prefWidth="162.0" text="★★★★★" textAlignment="CENTER" textFill="#ffc83d">
                      <font>
                         <Font size="26.0" />
@@ -123,7 +123,7 @@
                         <Image url="@logo.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="ButtonEmprunt" layoutX="860.0" layoutY="57.0" mnemonicParsing="false" onMouseClicked="#AfficherEmprunt" text="🛒" />
+                  <Button fx:id="ButtonEmprunt" layoutX="858.0" layoutY="51.0" mnemonicParsing="false" onMouseClicked="#AfficherEmprunt" prefHeight="37.0" prefWidth="35.0" text="🛒" />
                </children>
             </Pane>
          </top>
@@ -131,7 +131,7 @@
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <ListView fx:id="ListViewResultat" prefHeight="646.0" prefWidth="825.0" />
-                  <Pane fx:id="detailPane" prefHeight="643.0" prefWidth="825.0">
+                  <Pane fx:id="detailPane" prefHeight="643.0" prefWidth="825.0" visible="false">
                      <children>
                         <ImageView fitHeight="443.0" fitWidth="247.0" layoutX="57.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
                            <image>
