@@ -6,10 +6,10 @@ L'application xMediatek est une application de gestion des emprunts, des stocks 
 ## Charte Graphique
 ---
 Pour le projet nous avons décidé d'une charte graphique composé de quatre couleurs :
-- #222831 <span style="color:red">Ceci est la couleur principale</span>.
-- #393e46 <span style="color:#393e46">Ceci est la couleur secondaire </span>
-- #00adb5
-- #eeeeee
+- ![#222831](https://via.placeholder.com/15/222831/000000?text=+) `Ceci est la couleur principale`
+- ![#393e46](https://via.placeholder.com/15/393e46/000000?text=+) `Ceci est la couleur secondaire`
+- ![#00adb5](https://via.placeholder.com/15/00adb5/000000?text=+) `Ceci est la couleur contraste`
+- ![#eeeeee](https://via.placeholder.com/15/eeeeee/000000?text=+) `Ceci est la couleur neutre`
 
 ## Outils utilisés
 ---
