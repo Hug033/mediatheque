@@ -22,6 +22,9 @@ L'application xMediatek est une application de gestion des emprunts, des stocks 
 L'application est composé de plusieurs interface permettant plusieurs chose. Une Interface de Connexion, une interface Lecteur, une Interface Opérateur ainsi qu'un Interface d'Administrateur. Lorsqu'un utilisateur est connecté il peut se déconnecter en fermant l'application et elle se rouvre sur la page de connexion.  
 
   
+<br/>
+<br/>
+
 ###  - Interface de connexion
 ---
 <img align="right" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/Login.png"/>
