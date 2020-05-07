@@ -138,7 +138,6 @@ public class UserController implements Initializable {
         }
         ListViewResultat.setCellFactory(lv -> new MediaListCell());
         ListViewResultat.setItems(items);
-        refresh();
     }
 
     // Méthode pour afficher le pane d'emprunt

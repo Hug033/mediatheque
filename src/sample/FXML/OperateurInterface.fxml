@@ -4,7 +4,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -35,7 +35,7 @@
                      <font>
                         <Font size="18.0" />
                      </font></CheckBox>
-                  <Button fx:id="ButtonFiltre" layoutX="13.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#Filtrer" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="Filtrer" />
+                  <Button fx:id="ButtonFiltre" layoutX="13.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#refresh" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #00adb5;" text="Acutaliser" textFill="WHITE" />
                   <Label layoutX="5.0" layoutY="176.0" prefHeight="38.0" prefWidth="168.0" text="Status :" textFill="WHITE" underline="true">
                      <font>
                         <Font size="22.0" />
@@ -69,7 +69,7 @@
                <children>
                   <TextField fx:id="InputRecherche" layoutX="200.0" layoutY="52.0" onKeyPressed="#VerifTouche" prefHeight="37.0" prefWidth="601.0" promptText="Recherchez vos CD, DVD, Livres, ..." />
                   <Button fx:id="ButtonRecherche" layoutX="797.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#Recherche" prefHeight="36.0" prefWidth="42.0" text="🔎" />
-                  <ImageView fx:id="ImageProfil" fitHeight="96.0" fitWidth="76.0" layoutX="906.0" layoutY="14.0" onMouseClicked="#AfficherCompte" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ImageProfil" fitHeight="96.0" fitWidth="76.0" layoutX="906.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Profil.png" />
                      </image>
@@ -91,105 +91,58 @@
             <Pane fx:id="PaneResultat" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eeeeee;" BorderPane.alignment="CENTER">
                <children>
                   <ListView fx:id="ListViewResultat" prefHeight="647.0" prefWidth="825.0" />
-                  <Pane prefHeight="646.0" prefWidth="827.0" visible="false">
+                  <Pane fx:id="detailPane" prefHeight="643.0" prefWidth="825.0" visible="false">
                      <children>
-                        <Button fx:id="ButtonFiltre1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#Filtrer" prefHeight="25.0" prefWidth="42.0" style="-fx-background-color: #00adb5;" text="⬅" textFill="WHITE" />
-                        <ImageView fitHeight="254.0" fitWidth="363.0" layoutX="72.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="353.0" fitWidth="247.0" layoutX="57.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@Profil.png" />
+                              <Image url="@livre.jpg" />
                            </image>
                         </ImageView>
-                        <Pane layoutX="251.0" layoutY="69.0" prefHeight="253.0" prefWidth="512.0" style="-fx-background-color: #00adb5;">
+                        <Label fx:id="titleMedia" alignment="CENTER" layoutX="304.0" layoutY="125.0" prefHeight="38.0" prefWidth="338.0" text="Nom du media" textFill="#393e46">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="ButtonFiltre1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: #00adb5;" text="⬅" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Label alignment="CENTER" layoutX="326.0" layoutY="424.0" prefHeight="38.0" prefWidth="75.0" text="Note: " textFill="#393e46">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="noteMedia" alignment="CENTER" layoutX="391.0" layoutY="426.0" prefHeight="38.0" prefWidth="53.0" text="4.5/5" textFill="#393e46">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="328.0" layoutY="459.0" prefHeight="38.0" prefWidth="75.0" text="Status:" textFill="#393e46">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="statusMedia" alignment="CENTER" layoutX="398.0" layoutY="461.0" prefHeight="38.0" prefWidth="86.0" text="En stock" textFill="#2f7518">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Pane fx:id="canReserve" layoutX="35.0" layoutY="511.0" prefHeight="107.0" prefWidth="770.0">
                            <children>
-                              <Label layoutX="9.0" layoutY="12.0" prefHeight="49.0" prefWidth="231.0" text="Prenom NOM" textFill="WHITE">
+                              <Button fx:id="actionButton" layoutX="109.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#updateBorrow" prefHeight="51.0" prefWidth="276.0" style="-fx-background-color: #00adb5;" text="---------------" textFill="WHITE">
                                  <font>
-                                    <Font name="System Bold" size="22.0" />
+                                    <Font name="System Bold" size="20.0" />
                                  </font>
-                              </Label>
-                              <Label layoutX="9.0" layoutY="60.0" prefHeight="49.0" prefWidth="175.0" text="Date de naissance:" textFill="WHITE">
+                              </Button>
+                              <Button fx:id="actionButton2" layoutX="412.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#borrowStock" prefHeight="51.0" prefWidth="276.0" style="-fx-background-color: #00adb5;" text="---------------" textFill="WHITE">
                                  <font>
-                                    <Font name="System Bold" size="19.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="180.0" layoutY="60.0" prefHeight="49.0" prefWidth="175.0" text="01/01/0001" textFill="WHITE">
-                                 <font>
-                                    <Font size="19.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="9.0" layoutY="97.0" prefHeight="49.0" prefWidth="175.0" text="Email: " textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="19.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="180.0" layoutY="97.0" prefHeight="49.0" prefWidth="175.0" text="user@login.com" textFill="WHITE">
-                                 <font>
-                                    <Font size="19.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="11.0" layoutY="135.0" prefHeight="49.0" prefWidth="175.0" text="Téléphone:" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="19.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="182.0" layoutY="135.0" prefHeight="49.0" prefWidth="175.0" text="+33.00.00.00.00.00" textFill="WHITE">
-                                 <font>
-                                    <Font size="19.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="12.0" layoutY="171.0" prefHeight="49.0" prefWidth="175.0" text="Inscrit depuis:" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="19.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="183.0" layoutY="171.0" prefHeight="49.0" prefWidth="175.0" text="00/00/1205" textFill="WHITE">
-                                 <font>
-                                    <Font size="19.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="13.0" layoutY="204.0" prefHeight="49.0" prefWidth="175.0" text="Status:" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="19.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="184.0" layoutY="204.0" prefHeight="49.0" prefWidth="191.0" text="Banni à vie" textFill="WHITE">
-                                 <font>
-                                    <Font size="19.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="72.0" layoutY="333.0" prefHeight="263.0" prefWidth="693.0" style="-fx-background-color: #00adb5;">
-                           <children>
-                              <Label layoutX="14.0" layoutY="14.0" prefHeight="49.0" prefWidth="231.0" text="Mot de passe:" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="22.0" />
-                                 </font>
-                              </Label>
-                              <PasswordField layoutX="202.0" layoutY="75.0" prefHeight="25.0" prefWidth="211.0" />
-                              <Label layoutX="63.0" layoutY="63.0" prefHeight="49.0" prefWidth="140.0" text="Actuel:" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="19.0" />
-                                 </font>
-                              </Label>
-                              <PasswordField layoutX="202.0" layoutY="113.0" prefHeight="25.0" prefWidth="212.0" />
-                              <Label layoutX="63.0" layoutY="101.0" prefHeight="49.0" prefWidth="140.0" text="Nouveau:" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="19.0" />
-                                 </font>
-                              </Label>
-                              <PasswordField layoutX="202.0" layoutY="153.0" prefHeight="25.0" prefWidth="213.0" />
-                              <Label layoutX="63.0" layoutY="141.0" prefHeight="49.0" prefWidth="140.0" text="Confirmation:" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="19.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="ButtonFiltre11" layoutX="491.0" layoutY="209.0" mnemonicParsing="false" onMouseClicked="#Filtrer" prefHeight="44.0" prefWidth="190.0" style="-fx-background-color: white;" text="Enregistrer" textFill="#00adb5">
-                                 <font>
-                                    <Font size="21.0" />
+                                    <Font name="System Bold" size="20.0" />
                                  </font>
                               </Button>
                            </children>
                         </Pane>
+                        <TextArea fx:id="descriptionMedia" editable="false" layoutX="341.0" layoutY="189.0" prefHeight="220.0" prefWidth="307.0" style="-fx-border-color: #393e46;" />
                      </children>
                   </Pane>
                </children></Pane>

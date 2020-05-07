@@ -3,15 +3,15 @@ package sample.FXML;
 import com.google.gson.Gson;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import sample.ClientConnexion;
 
 import java.io.Serializable;
@@ -28,7 +28,10 @@ public class OperateurController implements Initializable {
     private TextField InputRecherche;
 
     @FXML
-    private Button ButtonRecherche;
+    private Button actionButton;
+
+    @FXML
+    private Button actionButton2;
 
     @FXML
     private ImageView ImageProfil;
@@ -61,6 +64,21 @@ public class OperateurController implements Initializable {
     private Pane PaneResultat;
 
     @FXML
+    private Label titleMedia;
+
+    @FXML
+    private TextArea descriptionMedia;
+
+    @FXML
+    private Label noteMedia;
+
+    @FXML
+    private Label statusMedia;
+
+    @FXML
+    private Pane detailPane;
+
+    @FXML
     private ListView<Media> ListViewResultat = new ListView<Media>();
 
     private ArrayList<Media> saveList = null;
@@ -84,13 +102,69 @@ public class OperateurController implements Initializable {
     // Méthode de Recherche sur ce qu'on à rentrer
     @FXML
     private void Recherche() {
+        ObservableList<Media> items = FXCollections.observableArrayList();
+        TypeCheckStock.setSelected(false);
+        TypeCheckRetard.setSelected(false);
+        TypeCheckValider.setSelected(false);
+        TypeCheckCours.setSelected(false);
 
+        for (int i = 0; i < saveList.size(); i++) {
+            Media temp = new Gson().fromJson(String.valueOf(saveList.get(i)), Media.class);
+            if (temp.getTitle().contains(InputRecherche.getText()))
+                items.add(temp);
+        }
+        ListViewResultat.setCellFactory(lv -> new MediaListCell());
+        ListViewResultat.setItems(items);
+    }
+
+    //Methode pour split la description
+    public String SplitDescription(String description) {
+        if (description.length() < 136) {
+            return description;
+        } else if (description.length() >= 136 && description.length() < 272) {
+            return description.substring(0, 135) + "\n" + description.substring(136, 271);
+        } else {
+            return description.substring(0, 135) + "\n" + description.substring(136, 271) + "\n" + description.substring(272, 407);
+        }
     }
 
     // Méthode pour afficher le pane de compte
     @FXML
-    private void AfficherCompte() {
+    private void AfficherCompte(Media m) {
+        ListViewResultat.setVisible(false);
+        actionButton.setVisible(true);
+        actionButton2.setVisible(true);
+        titleMedia.setText(m.getTitle());
+        descriptionMedia.setText(SplitDescription(m.getDescription()));
+        noteMedia.setText(String.valueOf(m.getRate()) + "/5");
+        String status = "";
+        statusMedia.setTextFill(Color.RED);
+        if (m.getState() == 1) {
+            status = "Réservé";
+            actionButton.setText("A valider");
+            actionButton2.setDisable(true);
+        } else if (m.getState() == 2) {
+            status = "En cours";
+            actionButton.setText("Indiquer retard");
+            actionButton2.setText("Rendu");
+        } else if (m.getState() == 3) {
+            status = "En retard";
+            actionButton.setText("Rendu");
+            actionButton2.setDisable(true);
+        } else {
+            statusMedia.setTextFill(Color.GREEN);
+            status = "Libre";
+            actionButton.setVisible(false);
+            actionButton2.setVisible(false);
+        }
+        statusMedia.setText(status);
+        detailPane.setVisible(true);
+    }
 
+    @FXML
+    private void back() {
+        ListViewResultat.setVisible(true);
+        detailPane.setVisible(false);
     }
 
     //Méthode Quand on clique sur le selectDVD
@@ -127,11 +201,11 @@ public class OperateurController implements Initializable {
         commandes.add(type);
         ClientConnexion connexion = new ClientConnexion("127.0.0.1", 2345, commandes);
         List<Serializable> response = connexion.run();
-        ArrayList<Media> back = new Gson().fromJson((String)response.get(0), ArrayList.class);
+        ArrayList<Media> back = new Gson().fromJson((String) response.get(0), ArrayList.class);
         saveList = back;
         ObservableList<Media> items = FXCollections.observableArrayList();
 
-        for(int i = 0; i < back.size(); i++) {
+        for (int i = 0; i < back.size(); i++) {
             Media temp = new Gson().fromJson(String.valueOf(back.get(i)), Media.class);
             System.out.println(temp);
             items.add(temp);
@@ -142,9 +216,9 @@ public class OperateurController implements Initializable {
 
     private void selectByState(int state) {
         ObservableList<Media> items = FXCollections.observableArrayList();
-        for(int i = 0; i < saveList.size(); i++) {
+        for (int i = 0; i < saveList.size(); i++) {
             Media temp = new Gson().fromJson(String.valueOf(saveList.get(i)), Media.class);
-            if(temp.getState() == state)
+            if (temp.getState() == state)
                 items.add(temp);
         }
         ListViewResultat.getItems().clear();
@@ -153,16 +227,16 @@ public class OperateurController implements Initializable {
     }
 
     private void reset(int state) {
-        if(state != 1)
+        if (state != 1)
             TypeCheckValider.setSelected(false);
-        if(state != 2)
+        if (state != 2)
             TypeCheckCours.setSelected(false);
-        if(state != 3)
+        if (state != 3)
             TypeCheckRetard.setSelected(false);
-        if( state != 0)
+        if (state != 0)
             TypeCheckStock.setSelected(false);
         ObservableList<Media> items = FXCollections.observableArrayList();
-        for(int i = 0; i < saveList.size(); i++) {
+        for (int i = 0; i < saveList.size(); i++) {
             Media temp = new Gson().fromJson(String.valueOf(saveList.get(i)), Media.class);
             items.add(temp);
         }
@@ -175,7 +249,7 @@ public class OperateurController implements Initializable {
     @FXML
     private void SelectValider() {
         reset(1);
-        if(TypeCheckValider.isSelected())
+        if (TypeCheckValider.isSelected())
             selectByState(1);
     }
 
@@ -183,7 +257,7 @@ public class OperateurController implements Initializable {
     @FXML
     private void SelectCours() {
         reset(2);
-        if(TypeCheckCours.isSelected())
+        if (TypeCheckCours.isSelected())
             selectByState(2);
     }
 
@@ -191,7 +265,7 @@ public class OperateurController implements Initializable {
     @FXML
     private void SelectRetard() {
         reset(3);
-        if(TypeCheckRetard.isSelected())
+        if (TypeCheckRetard.isSelected())
             selectByState(3);
     }
 
@@ -199,7 +273,7 @@ public class OperateurController implements Initializable {
     @FXML
     private void SelectStock() {
         reset(0);
-        if(TypeCheckStock.isSelected())
+        if (TypeCheckStock.isSelected())
             selectByState(0);
     }
 
@@ -211,6 +285,55 @@ public class OperateurController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        SelectTypeMedia("DVD");
+        ListViewResultat.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (ListViewResultat.getSelectionModel().getSelectedItem() != null)
+                    AfficherCompte(ListViewResultat.getSelectionModel().getSelectedItem());
+            }
+        });
+    }
 
+    @FXML
+    private void refresh() {
+        SelectTypeMedia("DVD");
+    }
+
+    @FXML
+    private void updateBorrow() {
+        Media m = ListViewResultat.getSelectionModel().getSelectedItem();
+        List<String> commandes = new ArrayList<>();
+        commandes.add("CHANGE_BORROW");
+        commandes.add(String.valueOf(m.getBorrowId()));
+        if (m.getState() == 1)
+            commandes.add("2");
+        else if (m.getState() == 2)
+            commandes.add("3");
+        else
+            commandes.add("0");
+
+        ClientConnexion connexion = new ClientConnexion("127.0.0.1", 2345, commandes);
+        List<Serializable> response = connexion.run();
+        if (response.get(0).equals("OK")) {
+            back();
+            refresh();
+        }
+    }
+
+    @FXML
+    private void borrowStock() {
+        Media m = ListViewResultat.getSelectionModel().getSelectedItem();
+        List<String> commandes = new ArrayList<>();
+        commandes.add("CHANGE_BORROW");
+        commandes.add(String.valueOf(m.getBorrowId()));
+        commandes.add("0");
+
+        ClientConnexion connexion = new ClientConnexion("127.0.0.1", 2345, commandes);
+        List<Serializable> response = connexion.run();
+        if (response.get(0).equals("OK")) {
+            actionButton.setVisible(false);
+            actionButton2.setVisible(false);
+        }
     }
 }

@@ -84,7 +84,7 @@ public class MediaListCell extends ListCell<Media> {
             else if (item.getState() == 0)
                 title += " (en stock)";
             titleLabel.setText(title);
-            mediaIcon.setImage(new Image(Main.class.getResourceAsStream("FXML/logo.png")));
+            mediaIcon.setImage(new Image(Main.class.getResourceAsStream("FXML/livre.jpg")));
             descriptionLabel.setText(SplitDescription(item.getDescription()));
             rateLabel.setText(String.format("%s/5 étoiles (%d évaluations)", String.valueOf(item.getRate()), item.getNbRate()));
             moreButton.setText("+ de détails !");
