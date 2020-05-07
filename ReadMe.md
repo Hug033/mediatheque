@@ -37,16 +37,15 @@ Un lecteur peut être banni lorsqu'il à trop de retard dans ses emprunt ou qu'i
 
 ### - Interface opérateur
 ---
+<img align="right" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/Operateur.png"/>
 Le rôle Opérateur est le rôle d'une ou d'un médiathécaire. L'Opérateur permet de visualiser l'ensemble des emprunt en les triant, valider les emprunts demandés par les Lecteurs.
-> Il peut aussi ajouter des médias via un formulaire.
 
-<img height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/Operateur.png"/>
+> Il peut aussi ajouter des médias via un formulaire.
 
 ### - Interface administrateur
 ---
+<img align="left" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/Admin.png"/>
 Le rôle Administrateur est le rôle du chef de la médiathèque. L'Administrateur permet de gérer tout les utilisateurs et de les afficher selon leur rôle. Il peut bannir et dé-bannir les Lecteurs ainsi que de modifier les mots de passe pour les ré-initialiser.  Il peut également ajouter un utilisateur via un formulaire. 
-
-<img height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/Admin.png"/>
 
 ## API serveur
 ---
@@ -54,13 +53,15 @@ L'API coté serveur à été faite en Java, les connexions avec le client sont r
 
 ## Base de données
 ---
+<img align="right" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/BDD.png"/>
+
 La base de données est en PostreSQL 12, elle contient 10 tables. Un jeu d'essai à été réaliser afin de remplir la baser au minimum, comportant 6 médias, 3 catégories, 3 thèmes, 10 utilisateurs ainsi que 10 auteur/réalisateur pour une taille de 25Ko.
-<img height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/BDD.png"/>
 
 ## Diagramme de classe
 ---
+<img align="left" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/UML.png"/>
+
 Le diagramme de classe est réalisé avec le plugin plantUML et graphviz sur IntelliJ.
-<img height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/UML.png"/>
 
 ## La suite
 ---
