@@ -1,6 +1,4 @@
-
 # Projet xMediatek
-
 Le projet à été réalisé du 27 avril 2020 au 07 mai 2020. Par les trinôme Antoine Zych, Hugo Bouillard et Louis Roussel.
 
 L'application xMediatek est une application de gestion des emprunts, des stocks ainsi que des utilisateurs dans une médiathèque.
@@ -18,8 +16,8 @@ L'application xMediatek est une application de gestion des emprunts, des stocks 
 |Versionning de l’application|Git|7/10|
 
 
-## Composition de l'application 
-
+## Composition de l'application
+---
 L'application est composé de plusieurs interface permettant plusieurs chose. Une Interface de Connexion, une interface Lecteur, une Interface Opérateur ainsi qu'un Interface d'Administrateur. Lorsqu'un utilisateur est connecté il peut se déconnecter en fermant l'application et elle se rouvre sur la page de connexion.
 
 ###  - Interface de connexion
@@ -28,22 +26,14 @@ L'application est composé de plusieurs interface permettant plusieurs chose. Un
 Cette interface permet la connexion d'un utilisateur grâce aux deux champs de saisie. Il y a une vérification de lors de la saisie de l'email affichant une message d'erreur.
 Si le login et le mot de passe entrant sont correct une connexion est établie et l'interface lier au rôle de la personne s'ouvre, sinon un message d'erreur apparaît.
 
-
-
-
-
-
-
-
-
 ### - Interface utilisateur
 ---
+<img align="left" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/User.png"/>
 Le rôle Lecteur est le rôle pour chaque personne arrivant à la médiathèque sans droit particulier. Le Lecteur peut consulter les médias via une recherche et un tri, il peut aussi effectuer une demande d'emprunt d'un média.
+
 > Il peut aussi modifier son mot de passe.
 
 Un lecteur peut être banni lorsqu'il à trop de retard dans ses emprunt ou qu'il rend les média dégradé. Il est notifié lors d'un essai de connexion, un administrateur peut le dé-bannir.
-
-<img height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/User.png"/>
 
 ### - Interface opérateur
 ---
