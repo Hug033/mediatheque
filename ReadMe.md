@@ -70,11 +70,9 @@ La base de données est en PostreSQL 12, elle contient 10 tables. Un jeu d'essai
   
 ## Diagramme de classe
 ---
-<div>
-<center>
-<img align="left" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/UML.png"/>
-</center>
-</div>
+<p align="center">
+<img height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/UML.png"/>
+</p>
 Le diagramme de classe est réalisé avec le plugin plantUML et graphviz sur IntelliJ.  
 
 ## La suite
