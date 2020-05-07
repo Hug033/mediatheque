@@ -63,6 +63,7 @@ Le rôle Opérateur est le rôle d'une ou d'un médiathécaire. L'Opérateur per
 Le rôle Administrateur est le rôle du chef de la médiathèque. L'Administrateur permet de gérer tout les utilisateurs et de les afficher selon leur rôle. Il peut bannir et dé-bannir les Lecteurs ainsi que de modifier les mots de passe pour les ré-initialiser.  Il peut également ajouter un utilisateur via un formulaire.   
 
 <br/>
+<br/>
 <br/>  
 
 ## API serveur
