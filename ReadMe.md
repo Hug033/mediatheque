@@ -43,7 +43,6 @@ Le rôle Lecteur est le rôle pour chaque personne arrivant à la médiathèque 
 
 Un lecteur peut être banni lorsqu'il à trop de retard dans ses emprunt ou qu'il rend les média dégradé. Il est notifié lors d'un essai de connexion, un administrateur peut le dé-bannir.  
 
-<br/>
 <br/>  
 
 ### - Interface opérateur
@@ -61,9 +60,10 @@ Le rôle Opérateur est le rôle d'une ou d'un médiathécaire. L'Opérateur per
 ---
 <img align="left" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/Admin.png"/>
 
-<div margin="10%"
 Le rôle Administrateur est le rôle du chef de la médiathèque. L'Administrateur permet de gérer tout les utilisateurs et de les afficher selon leur rôle. Il peut bannir et dé-bannir les Lecteurs ainsi que de modifier les mots de passe pour les ré-initialiser.  Il peut également ajouter un utilisateur via un formulaire.   
-</div>
+
+<br/>
+<br/>  
 
 ## API serveur
 ---
@@ -76,7 +76,9 @@ L'API coté serveur à été faite en Java, les connexions avec le client sont r
 
 La base de données est en PostreSQL 12, elle contient 10 tables. Un jeu d'essai à été réaliser afin de remplir la baser au minimum, comportant 6 médias, 3 catégories, 3 thèmes, 10 utilisateurs ainsi que 10 auteur/réalisateur pour une taille de 25Ko.  
 
-  
+<br/>
+<br/>  
+
 ## Diagramme de classe
 ---
 <p align="center">
