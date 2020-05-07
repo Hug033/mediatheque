@@ -53,9 +53,10 @@ Le rôle Opérateur est le rôle d'une ou d'un médiathécaire. L'Opérateur per
 ---
 <img align="left" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/Admin.png"/>
 
+<div margin="10%"
 Le rôle Administrateur est le rôle du chef de la médiathèque. L'Administrateur permet de gérer tout les utilisateurs et de les afficher selon leur rôle. Il peut bannir et dé-bannir les Lecteurs ainsi que de modifier les mots de passe pour les ré-initialiser.  Il peut également ajouter un utilisateur via un formulaire.   
+</div>
 
-  
 ## API serveur
 ---
 L'API coté serveur à été faite en Java, les connexions avec le client sont réalisés avec l'API Socket. Elle permet d’exécuter les requêtes SQL demandées par le client et de renvoyer les données sous format JSON pour les afficher. Elle permet également de renvoyé des code erreurs permettant d'informer le client. Elle est Multi-thread ce qui permet de traiter plusieurs requête et demande en même temps. Il est possible de la déployer sur n'importe quel serveur puisqu'elle s'affiche seulement en console.  
