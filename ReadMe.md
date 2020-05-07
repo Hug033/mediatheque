@@ -22,8 +22,6 @@ L'application xMediatek est une application de gestion des emprunts, des stocks 
 L'application est composé de plusieurs interface permettant plusieurs chose. Une Interface de Connexion, une interface Lecteur, une Interface Opérateur ainsi qu'un Interface d'Administrateur. Lorsqu'un utilisateur est connecté il peut se déconnecter en fermant l'application et elle se rouvre sur la page de connexion.  
 
   
-<br/>
-<br/>
 
 ###  - Interface de connexion
 ---
@@ -31,6 +29,9 @@ L'application est composé de plusieurs interface permettant plusieurs chose. Un
 
 Cette interface permet la connexion d'un utilisateur grâce aux deux champs de saisie. Il y a une vérification de lors de la saisie de l'email affichant une message d'erreur.
 Si le login et le mot de passe entrant sont correct une connexion est établie et l'interface lier au rôle de la personne s'ouvre, sinon un message d'erreur apparaît.
+
+<br/>
+<br/>
 
 ### - Interface utilisateur
 ---
