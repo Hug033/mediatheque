@@ -3,6 +3,7 @@ Le projet à été réalisé du 27 avril 2020 au 07 mai 2020. Par les trinôme A
 
 L'application xMediatek est une application de gestion des emprunts, des stocks ainsi que des utilisateurs dans une médiathèque.
 
+
 ## Outils utilisés
 ---
 |Utilisation|Outil/Langage|Compétence initiale|
@@ -20,11 +21,13 @@ L'application xMediatek est une application de gestion des emprunts, des stocks 
 ---
 L'application est composé de plusieurs interface permettant plusieurs chose. Une Interface de Connexion, une interface Lecteur, une Interface Opérateur ainsi qu'un Interface d'Administrateur. Lorsqu'un utilisateur est connecté il peut se déconnecter en fermant l'application et elle se rouvre sur la page de connexion.
 
+
 ###  - Interface de connexion
 ---
 <img align="right" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/Login.png"/>
 Cette interface permet la connexion d'un utilisateur grâce aux deux champs de saisie. Il y a une vérification de lors de la saisie de l'email affichant une message d'erreur.
 Si le login et le mot de passe entrant sont correct une connexion est établie et l'interface lier au rôle de la personne s'ouvre, sinon un message d'erreur apparaît.
+
 
 ### - Interface utilisateur
 ---
@@ -35,6 +38,7 @@ Le rôle Lecteur est le rôle pour chaque personne arrivant à la médiathèque 
 
 Un lecteur peut être banni lorsqu'il à trop de retard dans ses emprunt ou qu'il rend les média dégradé. Il est notifié lors d'un essai de connexion, un administrateur peut le dé-bannir.
 
+
 ### - Interface opérateur
 ---
 <img align="right" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/Operateur.png"/>
@@ -42,14 +46,17 @@ Le rôle Opérateur est le rôle d'une ou d'un médiathécaire. L'Opérateur per
 
 > Il peut aussi ajouter des médias via un formulaire.
 
+
 ### - Interface administrateur
 ---
 <img align="left" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/Admin.png"/>
 Le rôle Administrateur est le rôle du chef de la médiathèque. L'Administrateur permet de gérer tout les utilisateurs et de les afficher selon leur rôle. Il peut bannir et dé-bannir les Lecteurs ainsi que de modifier les mots de passe pour les ré-initialiser.  Il peut également ajouter un utilisateur via un formulaire. 
 
+
 ## API serveur
 ---
 L'API coté serveur à été faite en Java, les connexions avec le client sont réalisés avec l'API Socket. Elle permet d’exécuter les requêtes SQL demandées par le client et de renvoyer les données sous format JSON pour les afficher. Elle permet également de renvoyé des code erreurs permettant d'informer le client. Elle est Multi-thread ce qui permet de traiter plusieurs requête et demande en même temps. Il est possible de la déployer sur n'importe quel serveur puisqu'elle s'affiche seulement en console.
+
 
 ## Base de données
 ---
@@ -57,11 +64,13 @@ L'API coté serveur à été faite en Java, les connexions avec le client sont r
 
 La base de données est en PostreSQL 12, elle contient 10 tables. Un jeu d'essai à été réaliser afin de remplir la baser au minimum, comportant 6 médias, 3 catégories, 3 thèmes, 10 utilisateurs ainsi que 10 auteur/réalisateur pour une taille de 25Ko.
 
+
 ## Diagramme de classe
 ---
 <img align="left" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/UML.png"/>
 
 Le diagramme de classe est réalisé avec le plugin plantUML et graphviz sur IntelliJ.
+
 
 ## La suite
 ---
