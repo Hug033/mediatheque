@@ -27,6 +27,7 @@ L'application est composé de plusieurs interface permettant plusieurs chose. Un
 <img align="right" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/Login.png"/>
 Cette interface permet la connexion d'un utilisateur grâce aux deux champs de saisie. Il y a une vérification de lors de la saisie de l'email affichant une message d'erreur.
 Si le login et le mot de passe entrant sont correct une connexion est établie et l'interface lier au rôle de la personne s'ouvre, sinon un message d'erreur apparaît.
+<br/>
 
 ### - Interface utilisateur
 ---
