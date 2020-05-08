@@ -3,6 +3,13 @@ Le projet à été réalisé du 27 avril 2020 au 07 mai 2020. Par les trinôme A
 
 L'application xMediatek est une application de gestion des emprunts, des stocks ainsi que des utilisateurs dans une médiathèque.
 
+## Charte Graphique
+---
+Pour le projet nous avons décidé d'une charte graphique composé de quatre couleurs :
+- ![#222831](https://via.placeholder.com/15/222831/000000?text=+) `Ceci est la couleur principale`
+- ![#393e46](https://via.placeholder.com/15/393e46/000000?text=+) `Ceci est la couleur secondaire`
+- ![#00adb5](https://via.placeholder.com/15/00adb5/000000?text=+) `Ceci est la couleur contraste`
+- ![#eeeeee](https://via.placeholder.com/15/eeeeee/000000?text=+) `Ceci est la couleur neutre`
 
 ## Outils utilisés
 ---
