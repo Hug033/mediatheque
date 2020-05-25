@@ -32,7 +32,7 @@ L'application est composé de plusieurs interface permettant plusieurs chose. Un
 
 ###  - Interface de connexion
 ---
-<img align="right" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/Login.png"/>
+<img align="right" height="25%" width="25%" src="https://bouillard.me/img/Login.png"/>
 
 Cette interface permet la connexion d'un utilisateur grâce aux deux champs de saisie. Il y a une vérification de lors de la saisie de l'email affichant une message d'erreur.
 Si le login et le mot de passe entrant sont correct une connexion est établie et l'interface lier au rôle de la personne s'ouvre, sinon un message d'erreur apparaît.
@@ -42,7 +42,7 @@ Si le login et le mot de passe entrant sont correct une connexion est établie e
 
 ### - Interface utilisateur
 ---
-<img align="left" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/User.png"/>
+<img align="left" height="25%" width="25%" src="https://bouillard.me/img/User.png"/>
 
 Le rôle Lecteur est le rôle pour chaque personne arrivant à la médiathèque sans droit particulier. Le Lecteur peut consulter les médias via une recherche et un tri, il peut aussi effectuer une demande d'emprunt d'un média.
 
@@ -54,7 +54,7 @@ Un lecteur peut être banni lorsqu'il à trop de retard dans ses emprunt ou qu'i
 
 ### - Interface opérateur
 ---
-<img align="right" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/Operateur.png"/>
+<img align="right" height="25%" width="25%" src="https://bouillard.me/img/Operateur.png"/>
 
 Le rôle Opérateur est le rôle d'une ou d'un médiathécaire. L'Opérateur permet de visualiser l'ensemble des emprunt en les triant, valider les emprunts demandés par les Lecteurs.  
 
@@ -65,7 +65,7 @@ Le rôle Opérateur est le rôle d'une ou d'un médiathécaire. L'Opérateur per
 
 ### - Interface administrateur
 ---
-<img align="left" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/Admin.png"/>
+<img align="left" height="25%" width="25%" src="https://bouillard.me/img/Admin.png"/>
 
 Le rôle Administrateur est le rôle du chef de la médiathèque. L'Administrateur permet de gérer tout les utilisateurs et de les afficher selon leur rôle. Il peut bannir et dé-bannir les Lecteurs ainsi que de modifier les mots de passe pour les ré-initialiser.  Il peut également ajouter un utilisateur via un formulaire.   
 
@@ -80,7 +80,7 @@ L'API coté serveur à été faite en Java, les connexions avec le client sont r
   
 ## Base de données
 ---
-<img align="right" height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/BDD.png"/>
+<img align="right" height="25%" width="25%" src="https://bouillard.me/img/BDD.png"/>
 
 La base de données est en PostreSQL 12, elle contient 10 tables. Un jeu d'essai à été réaliser afin de remplir la baser au minimum, comportant 6 médias, 3 catégories, 3 thèmes, 10 utilisateurs ainsi que 10 auteur/réalisateur pour une taille de 25Ko.  
 
@@ -90,7 +90,7 @@ La base de données est en PostreSQL 12, elle contient 10 tables. Un jeu d'essai
 ## Diagramme de classe
 ---
 <p align="center">
-<img height="25%" width="25%" src="https://www.roussel-louis.fr/xMediatek/UML.png"/>
+<img height="25%" width="25%" src="https://bouillard.me/img/UML.png"/>
 </p>
 Le diagramme de classe est réalisé avec le plugin plantUML et graphviz sur IntelliJ.  
 
